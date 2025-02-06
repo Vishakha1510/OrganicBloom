@@ -20,7 +20,7 @@ class _Intro_screenState extends State<Intro_screen> {
           children: [
             Container(
               height: 300,
-              child: Image(image: AssetImage('assets/image.png'))),
+              child: Image(image: AssetImage('assets/logo.png'))),
             Text(
               "ORGANIC\n          BLOOM",
               style: GoogleFonts.rubikBubbles(

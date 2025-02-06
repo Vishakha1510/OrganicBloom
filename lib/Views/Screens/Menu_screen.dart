@@ -44,7 +44,28 @@ class _Menu_screenState extends State<Menu_screen> {
                                           Container(
                                             height: 120,
                                             width: 200,
-                                            child: Image.network("https://images.pexels.com/photos/1171170/pexels-photo-1171170.jpeg?auto=compress&cs=tinysrgb&w=600",fit: BoxFit.fitWidth,)),
+                                            child: Image(image: AssetImage('assets/vfbasket.png'),fit: BoxFit.fitWidth,)),
+                                          Text("Fruits & vegetables",style: TextStyle(fontSize: 18,color: Color(0xFF1E1E1E)),)
+                                         ],),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: (){},
+                                      child: Container(
+                                        height: 270,
+                                        width: 200,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white38,
+                                          borderRadius: BorderRadius.circular(10.0)
+                                        ),
+                                         child: Column(
+                                          spacing: 15,
+                                          children: [
+                                          Container(
+                                            height: 120,
+                                            width: 200,
+                                            child:  Image(image: AssetImage('assets/breakfast.png'),fit: BoxFit.fitWidth,)
+                                            ),
                                           Text("Breakfast",style: TextStyle(fontSize: 18,color: Color(0xFF1E1E1E)),)
                                          ],),
                                       ),
@@ -64,27 +85,8 @@ class _Menu_screenState extends State<Menu_screen> {
                                           Container(
                                             height: 120,
                                             width: 200,
-                                            child: Image.network("https://images.pexels.com/photos/691172/pexels-photo-691172.jpeg?auto=compress&cs=tinysrgb&w=600",fit: BoxFit.fitWidth,)),
-                                          Text("Breakfast",style: TextStyle(fontSize: 18,color: Color(0xFF1E1E1E)),)
-                                         ],),
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: (){},
-                                      child: Container(
-                                        height: 270,
-                                        width: 200,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white38,
-                                          borderRadius: BorderRadius.circular(10.0)
-                                        ),
-                                         child: Column(
-                                          spacing: 15,
-                                          children: [
-                                          Container(
-                                            height: 120,
-                                            width: 200,
-                                            child: Image.network("https://images.pexels.com/photos/1889571/pexels-photo-1889571.jpeg?auto=compress&cs=tinysrgb&w=600",fit: BoxFit.fitWidth,)),
+                                            child:Image(image: AssetImage('assets/beverage2.png'),fit: BoxFit.fitWidth,) 
+                                            ),
                                           Text("Beverages",style: TextStyle(fontSize: 18,color: Color(0xFF1E1E1E)),)
                                          ],),
                                       ),
@@ -104,7 +106,8 @@ class _Menu_screenState extends State<Menu_screen> {
                                           Container(
                                             height: 120,
                                             width: 200,
-                                            child: Image.network("https://media.istockphoto.com/id/1165495283/photo/different-types-of-animal-protein.jpg?b=1&s=612x612&w=0&k=20&c=kOt1yrqPpBhGEXz2YW-FuO5iM_xVlLHUIIV3moWZPCE=",fit: BoxFit.fitWidth,)),
+                                            child: Image(image: AssetImage('assets/meat&fish.png'),fit: BoxFit.fitWidth,)
+                                            ),
                                           Text("Meat&Fish",style: TextStyle(fontSize: 18,color: Color(0xFF1E1E1E)),)
                                          ],),
                                       ),
@@ -124,7 +127,8 @@ class _Menu_screenState extends State<Menu_screen> {
                                           Container(
                                             height: 120,
                                             width: 200,
-                                            child: Image.network("https://images.pexels.com/photos/1582482/pexels-photo-1582482.jpeg?auto=compress&cs=tinysrgb&w=600",fit: BoxFit.fitWidth,)),
+                                            child:Image(image: AssetImage('assets/snack2.png'),fit: BoxFit.fitWidth,)
+                                            ),
                                           Text("Snacks",style: TextStyle(fontSize: 18,color: Color(0xFF1E1E1E)),)
                                          ],),
                                       ),
@@ -144,7 +148,8 @@ class _Menu_screenState extends State<Menu_screen> {
                                           Container(
                                             height: 120,
                                             width: 200,
-                                            child: Image.network("https://images.pexels.com/photos/2531189/pexels-photo-2531189.jpeg?auto=compress&cs=tinysrgb&w=600",fit: BoxFit.fitWidth,)),
+                                            child: Image(image: AssetImage('assets/dairy2.png'),fit: BoxFit.fitWidth,)
+                                            ),
                                           Text("Dairy",style: TextStyle(fontSize: 18,color: Color(0xFF1E1E1E)),)
                                          ],),
                                       ),

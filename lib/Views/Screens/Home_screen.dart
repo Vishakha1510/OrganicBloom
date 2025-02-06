@@ -74,9 +74,7 @@ class _Home_screenState extends State<Home_screen> {
                                              Container(
                                                 height:120,
                                                 width: 200,
-                                                child: Image.network("https://media.istockphoto.com/id/182756426/photo/basket-of-healthy-vegetables-xxxl.webp?b=1&s=612x612&w=0&k=20&c=nhd522C_w1de5Au3h3ouLeAeBVL_tQ_fdNVF9aUZ2eY=",
-                                                                   fit: BoxFit.contain,
-                                                                   ),
+                                                child:Image(image: AssetImage('assets/vegbasket1.png'),fit: BoxFit.contain,)
                                              ) 
                                         ],
                                      )
@@ -113,9 +111,7 @@ class _Home_screenState extends State<Home_screen> {
                                              Container(
                                                 height:120,
                                                 width: 200,
-                                                child: Image.network("https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=600",
-                                                                   fit: BoxFit.contain,
-                                                                   ),
+                                                child:Image(image: AssetImage('assets/beverage1.png'),fit: BoxFit.contain,) 
                                              ) 
                                         ],
                                      )
@@ -152,9 +148,7 @@ class _Home_screenState extends State<Home_screen> {
                                              Container(
                                                 height:120,
                                                 width: 200,
-                                                child: Image.network("https://media.istockphoto.com/id/175176230/photo/fresh-fruits.jpg?b=1&s=612x612&w=0&k=20&c=PFL1L96SeAoETacqfrhLnSmD3iwI7svC-_6W5HYjdH0=",
-                                                                   fit: BoxFit.contain,
-                                                                   ),
+                                                child:Image(image: AssetImage('assets/fruitbasket1.png'),fit: BoxFit.contain,) 
                                              ) 
                                         ],
                                      )
@@ -196,9 +190,8 @@ class _Home_screenState extends State<Home_screen> {
                                     child: CircleAvatar(
                                     backgroundColor: Color(0xFF595959),
                                     radius: 35, 
-                                     backgroundImage: NetworkImage(
-                                                         "https://images.freeimages.com/variants/LEaaNndzfhZ6sjLuf4seiqxk/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&w=500"
-                                                   ),
+                                     backgroundImage: AssetImage('assets/fruitbasket2.png'),
+                                     
                                                  ),
                                                  ),
                                         ),
@@ -214,9 +207,7 @@ class _Home_screenState extends State<Home_screen> {
                                     child: CircleAvatar(
                                     backgroundColor: Color(0xFF595959),
                                     radius: 35, 
-                                     backgroundImage: NetworkImage(
-                                                         "https://media.istockphoto.com/id/2184147652/photo/various-fresh-dairy-products.webp?b=1&s=612x612&w=0&k=20&c=Y1QF4FMb5uTrowvEnFCwGL4mt2RAG07qwHxuy2jJZqQ="
-                                                   ),
+                                     backgroundImage:AssetImage('assets/dairy1.png'),
                                                  ),
                                                  ),
                                         ),
@@ -232,9 +223,7 @@ class _Home_screenState extends State<Home_screen> {
                                     child: CircleAvatar(
                                     backgroundColor: Color(0xFF595959),
                                     radius: 35, 
-                                     backgroundImage: NetworkImage(
-                                                         "https://images.freeimages.com/images/large-previews/579/vegetables-basket-1460409.jpg?fmt=webp&w=500"
-                                                   ),
+                                     backgroundImage:AssetImage('assets/vegbasket2.png'), 
                                                  ),
                                                  ),
                                         ),
@@ -250,9 +239,7 @@ class _Home_screenState extends State<Home_screen> {
                                     child: CircleAvatar(
                                     backgroundColor: Color(0xFF595959),
                                     radius: 35, 
-                                     backgroundImage: NetworkImage(
-                                                         "https://media.istockphoto.com/id/1005836940/photo/fruit-juice-selection-by-the-sea.webp?b=1&s=612x612&w=0&k=20&c=cxGT4OCV_CXmqNeigb9gU8C2irPuZoV2HEYfRNU1c7M="
-                                                   ),
+                                     backgroundImage: AssetImage('assets/beverage1.png')
                                                  ),
                                                  ),
                                         ),
@@ -268,9 +255,7 @@ class _Home_screenState extends State<Home_screen> {
                                     child: CircleAvatar(
                                     backgroundColor: Color(0xFF595959),
                                     radius: 35, 
-                                     backgroundImage: NetworkImage(
-                                                         "https://images.freeimages.com/images/large-previews/d4a/bowl-of-popcorn-1329429.jpg?fmt=webp&w=500"
-                                                   ),
+                                     backgroundImage: AssetImage('assets/snack1.png')
                                                  ),
                                                  ),
                                         ),
@@ -286,9 +271,7 @@ class _Home_screenState extends State<Home_screen> {
                                     child: CircleAvatar(
                                     backgroundColor: Color(0xFF595959),
                                     radius: 35, 
-                                     backgroundImage: NetworkImage(
-                                                         "https://images.freeimages.com/images/large-previews/313/eggs-1196288.jpg?fmt=webp&w=500"
-                                                   ),
+                                     backgroundImage:AssetImage('assets/egg1.png')
                                                  ),
                                                  ),
                                         ),
@@ -340,7 +323,7 @@ class _Home_screenState extends State<Home_screen> {
                                                     height: 120,width: 180,
                                                     child: Container(
                                                              height: 110,width: 180,
-                                                            child: Image.network("https://images.freeimages.com/images/large-previews/7dd/bananas-1326090.jpg?fmt=webp&w=500",fit: BoxFit.cover,),
+                                                            child: Image(image: AssetImage('assets/banana.png'),fit: BoxFit.cover,)
                                                               ),
                                                             ),
                                                          Row(
@@ -369,7 +352,7 @@ class _Home_screenState extends State<Home_screen> {
                                                     height: 120,width: 180,
                                                     child: Container(
                                                              height: 110,width: 180,
-                                                            child: Image.network("https://images.freeimages.com/images/large-previews/772/apples-1325980.jpg?fmt=webp&w=500",fit: BoxFit.cover,),
+                                                            child: Image(image: AssetImage('assets/apple.png'),fit: BoxFit.cover,)
                                                               ),
                                                             ),
                                                          Row(
@@ -398,7 +381,7 @@ class _Home_screenState extends State<Home_screen> {
                                                     height: 120,width: 180,
                                                     child: Container(
                                                              height: 110,width: 180,
-                                                            child: Image.network("https://images.freeimages.com/images/large-previews/ffe/oranges-r-not-the-only-fruit-1322853.jpg?fmt=webp&w=500",fit: BoxFit.cover,),
+                                                            child: Image(image: AssetImage('assets/orange.png'),fit: BoxFit.cover,)
                                                               ),
                                                             ),
                                                          Row(
