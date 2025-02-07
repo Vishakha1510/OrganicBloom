@@ -19,16 +19,11 @@ class _Intro_screenState extends State<Intro_screen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 300,
-              child: Image(image: AssetImage('assets/logo.png'))),
-            Text(
-              "ORGANIC\n          BLOOM",
-              style: GoogleFonts.rubikBubbles(
-                  fontSize: 40,
-                  color: Color((0xFFA5CC65)
-              )
-              )
-                ),
+                height: 300,
+                child: Image(image: AssetImage('assets/logo.png'))),
+            Text("ORGANIC\n          BLOOM",
+                style: GoogleFonts.rubikBubbles(
+                    fontSize: 40, color: Color((0xFFA5CC65)))),
           ],
         ),
       ),
