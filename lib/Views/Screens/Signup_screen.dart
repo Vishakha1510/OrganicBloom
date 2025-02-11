@@ -93,9 +93,11 @@ class _Signup_screenState extends State<Signup_screen> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('home');
+                          },
                           child: Text(
-                            "SIGN IN",
+                            "SIGN UP",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,

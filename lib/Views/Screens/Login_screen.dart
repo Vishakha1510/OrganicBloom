@@ -91,7 +91,9 @@ class _Login_screenState extends State<Login_screen> {
                         fontWeight: FontWeight.bold, color: Color(0xFF1E1E1E)),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('signup');
+                    },
                     child: Text(
                       "Singup",
                       style: TextStyle(color: Color(0xFFA5CC65)),

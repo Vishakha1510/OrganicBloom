@@ -19,86 +19,89 @@ class _Profile_screenState extends State<Profile_screen> {
           style: TextStyle(fontSize: 25, color: Color(0xFF1E1E1E)),
         ),
       ),
-      body: Column(
-        children: [
-          Divider(),
-          Row(
-            spacing: 20,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(width: 5),
-              CircleAvatar(
-                radius: 40,
-                backgroundImage: NetworkImage(
-                    "https://images.freeimages.com/images/large-previews/8f6/rainbow-of-god-1190463.jpg?fmt=webp&w=500"),
-              ),
-              Column(
-                children: [Text("Username"), Text(" Contact no.")],
-              )
-            ],
-          ),
-          SizedBox(height: 20),
-          ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.edit,
-                color: Colors.blue,
-              ),
-              title: Text("Edit Profile")),
-          Divider(),
-          ListTile(
-              onTap: () {},
-              leading: Icon(Icons.location_on_outlined, color: Colors.black),
-              title: Text("My Address")),
-          Divider(),
-          ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.shopping_basket_outlined,
-                color: Colors.black,
-              ),
-              title: Text("My Orders")),
-          Divider(),
-          ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.bolt_outlined,
-                color: Colors.black,
-              ),
-              title: Text("My Wishlist")),
-          Divider(),
-          ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.messenger_outline,
-                color: Color(0xFFA5CC65),
-              ),
-              title: Text("Chat with us")),
-          Divider(),
-          ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.call_outlined,
-                color: Colors.orange,
-              ),
-              title: Text("Talk to our Support")),
-          Divider(),
-          ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.mail_outline,
-                color: Colors.black,
-              ),
-              title: Text("Mail to us")),
-          Divider(),
-          ListTile(
-              onTap: () {},
-              leading: Icon(
-                Icons.logout,
-                color: Colors.red,
-              ),
-              title: Text("Log out")),
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Divider(),
+            Row(
+              spacing: 20,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(width: 5),
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage: NetworkImage(
+                      "https://images.freeimages.com/images/large-previews/8f6/rainbow-of-god-1190463.jpg?fmt=webp&w=500"),
+                ),
+                Column(
+                  children: [Text("Username"), Text(" Contact no.")],
+                )
+              ],
+            ),
+            SizedBox(height: 20),
+            ListTile(
+                onTap: () {},
+                leading: Icon(
+                  Icons.edit,
+                  color: Colors.blue,
+                ),
+                title: Text("Edit Profile")),
+            Divider(),
+            ListTile(
+                onTap: () {},
+                leading: Icon(Icons.location_on_outlined, color: Colors.black),
+                title: Text("My Address")),
+            Divider(),
+            ListTile(
+                onTap: () {},
+                leading: Icon(
+                  Icons.shopping_basket_outlined,
+                  color: Colors.black,
+                ),
+                title: Text("My Orders")),
+            Divider(),
+            ListTile(
+                onTap: () {},
+                leading: Icon(
+                  Icons.bolt_outlined,
+                  color: Colors.black,
+                ),
+                title: Text("My Wishlist")),
+            Divider(),
+            ListTile(
+                onTap: () {},
+                leading: Icon(
+                  Icons.messenger_outline,
+                  color: Color(0xFFA5CC65),
+                ),
+                title: Text("Chat with us")),
+            Divider(),
+            ListTile(
+                onTap: () {},
+                leading: Icon(
+                  Icons.call_outlined,
+                  color: Colors.orange,
+                ),
+                title: Text("Talk to our Support")),
+            Divider(),
+            ListTile(
+                onTap: () {},
+                leading: Icon(
+                  Icons.mail_outline,
+                  color: Colors.black,
+                ),
+                title: Text("Mail to us")),
+            Divider(),
+            ListTile(
+                onTap: () {},
+                leading: Icon(
+                  Icons.logout,
+                  color: Colors.red,
+                ),
+                title: Text("Log out")),
+          ],
+        ),
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectbottomitemindex,

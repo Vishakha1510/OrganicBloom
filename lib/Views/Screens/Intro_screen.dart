@@ -24,6 +24,11 @@ class _Intro_screenState extends State<Intro_screen> {
             Text("ORGANIC\n          BLOOM",
                 style: GoogleFonts.rubikBubbles(
                     fontSize: 40, color: Color((0xFFA5CC65)))),
+            OutlinedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('login');
+                },
+                child: Text("Start"))
           ],
         ),
       ),
