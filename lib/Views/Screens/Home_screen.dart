@@ -517,7 +517,7 @@ class _Home_screenState extends State<Home_screen> {
                 margin: EdgeInsets.all(16),
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.green,
+                  color: Color(0xFFA5CC65),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
@@ -553,7 +553,7 @@ class _Home_screenState extends State<Home_screen> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
-                        foregroundColor: Colors.green,
+                        foregroundColor: Color(0xFFA5CC65),
                       ),
                       child: Text("View Basket"),
                     ),
