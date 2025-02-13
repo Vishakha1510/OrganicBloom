@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Fruits_list.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/fruit_detail_screen.dart';
 import 'package:organicbloom/Views/Screens/Fruits_category_screen.dart';
+import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
 import 'package:organicbloom/Views/Screens/bevegares_category_screen.dart';
 import 'package:organicbloom/Views/Screens/dairy_category_screen.dart';
 import 'package:organicbloom/Views/Screens/pulses_category_screen.dart';
@@ -43,7 +44,10 @@ class _Home_screenState extends State<Home_screen> {
         backgroundColor: Color(0xFFA5CC65),
         foregroundColor: Colors.white,
         title: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => MyAddressScreen()));
+          },
           child: Text(
             "364, Street... v",
             style: TextStyle(fontSize: 18, color: Colors.white),

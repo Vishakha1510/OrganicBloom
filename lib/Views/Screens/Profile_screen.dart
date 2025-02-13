@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Views/Screens/Chat_withus_screen.dart';
+import 'package:organicbloom/Views/Screens/Edit_profile_screen.dart';
 import 'package:organicbloom/Views/Screens/Home_screen.dart';
+import 'package:organicbloom/Views/Screens/Intro_screen.dart';
+import 'package:organicbloom/Views/Screens/Mail_to_us_screen.dart';
+import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
+import 'package:organicbloom/Views/Screens/My_Orders_screen.dart';
+import 'package:organicbloom/Views/Screens/My_Wishlist_screen.dart';
+import 'package:organicbloom/Views/Screens/Talk_to_our_support_screen.dart';
 
 class Profile_screen extends StatefulWidget {
   const Profile_screen({super.key});
@@ -41,7 +49,10 @@ class _Profile_screenState extends State<Profile_screen> {
             ),
             SizedBox(height: 20),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => EditProfileScreen()));
+                },
                 leading: Icon(
                   Icons.edit,
                   color: Colors.blue,
@@ -49,12 +60,18 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("Edit Profile")),
             Divider(),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MyAddressScreen()));
+                },
                 leading: Icon(Icons.location_on_outlined, color: Colors.black),
                 title: Text("My Address")),
             Divider(),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MyOrdersScreen()));
+                },
                 leading: Icon(
                   Icons.shopping_basket_outlined,
                   color: Colors.black,
@@ -62,7 +79,10 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("My Orders")),
             Divider(),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MyWishlistScreen()));
+                },
                 leading: Icon(
                   Icons.bolt_outlined,
                   color: Colors.black,
@@ -70,7 +90,10 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("My Wishlist")),
             Divider(),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ChatWithusScreen()));
+                },
                 leading: Icon(
                   Icons.messenger_outline,
                   color: Color(0xFFA5CC65),
@@ -78,7 +101,10 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("Chat with us")),
             Divider(),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => TalkToOurSupportScreen()));
+                },
                 leading: Icon(
                   Icons.call_outlined,
                   color: Colors.orange,
@@ -86,7 +112,10 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("Talk to our Support")),
             Divider(),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MailToUsScreen()));
+                },
                 leading: Icon(
                   Icons.mail_outline,
                   color: Colors.black,
@@ -94,7 +123,10 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("Mail to us")),
             Divider(),
             ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Intro_screen()));
+                },
                 leading: Icon(
                   Icons.logout,
                   color: Colors.red,
