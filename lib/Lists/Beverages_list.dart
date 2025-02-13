@@ -1,0 +1,136 @@
+List<Map<String, dynamic>> beverages = [
+  {
+    'name': 'Orange Juice',
+    'image': 'assets/orange_juice.png',
+    'price': 'Rs.120',
+    'rating': '⭐ 4.8 (500)',
+    'description':
+        'Freshly squeezed orange juice, full of Vitamin C to boost your energy.',
+    'nutrition': {
+      'Calories': '112 kcal',
+      'Carbs': '26g',
+      'Protein': '2g',
+      'Fat': '0.3g',
+    },
+  },
+  {
+    'name': 'Iced Latte',
+    'image': 'assets/iced_latte.png',
+    'price': 'Rs.150',
+    'rating': '⭐ 4.7 (300)',
+    'description': 'Cool and creamy iced latte, perfect for hot summer days.',
+    'nutrition': {
+      'Calories': '190 kcal',
+      'Carbs': '23g',
+      'Protein': '6g',
+      'Fat': '6g',
+    },
+  },
+  {
+    'name': 'Smoothie',
+    'image': 'assets/green_smoothie.png',
+    'price': 'Rs.180',
+    'rating': '⭐ 4.9 (350)',
+    'description': 'A healthy blend of spinach, kale, banana, and almond milk.',
+    'nutrition': {
+      'Calories': '150 kcal',
+      'Carbs': '28g',
+      'Protein': '3g',
+      'Fat': '2g',
+    },
+  },
+  {
+    'name': 'Black Coffee',
+    'image': 'assets/black_coffee.png',
+    'price': 'Rs.80',
+    'rating': '⭐ 4.5 (400)',
+    'description': 'Rich and bold black coffee to start your day with energy.',
+    'nutrition': {
+      'Calories': '2 kcal',
+      'Carbs': '0g',
+      'Protein': '0.2g',
+      'Fat': '0g',
+    },
+  },
+  {
+    'name': 'Mango Lassi',
+    'image': 'assets/mango_lassi.png',
+    'price': 'Rs.140',
+    'rating': '⭐ 4.6 (450)',
+    'description': 'A sweet and creamy blend of mangoes and yogurt.',
+    'nutrition': {
+      'Calories': '220 kcal',
+      'Carbs': '45g',
+      'Protein': '6g',
+      'Fat': '4g',
+    },
+  },
+  {
+    'name': 'Herbal Tea',
+    'image': 'assets/herbal_tea.png',
+    'price': 'Rs.90',
+    'rating': '⭐ 4.8 (200)',
+    'description':
+        'Relaxing and soothing herbal tea made from organic ingredients.',
+    'nutrition': {
+      'Calories': '0 kcal',
+      'Carbs': '0g',
+      'Protein': '0g',
+      'Fat': '0g',
+    },
+  },
+  {
+    'name': 'Lemonade',
+    'image': 'assets/lemonade.png',
+    'price': 'Rs.100',
+    'rating': '⭐ 4.7 (350)',
+    'description':
+        'Refreshing homemade lemonade with a perfect balance of sweetness and tang.',
+    'nutrition': {
+      'Calories': '120 kcal',
+      'Carbs': '30g',
+      'Protein': '0.5g',
+      'Fat': '0.1g',
+    },
+  },
+  {
+    'name': 'Choco.shake',
+    'image': 'assets/chocolate_milkshake.png',
+    'price': 'Rs.180',
+    'rating': '⭐ 4.9 (500)',
+    'description': 'Rich and creamy chocolate milkshake made with real cocoa.',
+    'nutrition': {
+      'Calories': '310 kcal',
+      'Carbs': '45g',
+      'Protein': '8g',
+      'Fat': '10g',
+    },
+  },
+  {
+    'name': 'Matcha Latte',
+    'image': 'assets/matcha_latte.png',
+    'price': 'Rs.220',
+    'rating': '⭐ 4.8 (270)',
+    'description':
+        'A creamy and earthy matcha latte for a smooth caffeine boost.',
+    'nutrition': {
+      'Calories': '240 kcal',
+      'Carbs': '28g',
+      'Protein': '9g',
+      'Fat': '8g',
+    },
+  },
+  {
+    'name': 'Hot Choco.',
+    'image': 'assets/hot_chocolate.png',
+    'price': 'Rs.150',
+    'rating': '⭐ 4.8 (450)',
+    'description': 'Warm and comforting hot chocolate made with rich cocoa.',
+    'nutrition': {
+      'Calories': '250 kcal',
+      'Carbs': '35g',
+      'Protein': '8g',
+      'Fat': '7g',
+    },
+  },
+];

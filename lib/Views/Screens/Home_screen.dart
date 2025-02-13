@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Lists/Fruits_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/fruit_detail_screen.dart';
+import 'package:organicbloom/Views/Screens/Fruits_category_screen.dart';
+import 'package:organicbloom/Views/Screens/bevegares_category_screen.dart';
+import 'package:organicbloom/Views/Screens/dairy_category_screen.dart';
+import 'package:organicbloom/Views/Screens/pulses_category_screen.dart';
+import 'package:organicbloom/Views/Screens/snacks_category_screen.dart';
+import 'package:organicbloom/Views/Screens/vegetable_category_screen.dart';
 
 int selectbottomitemindex = 0;
 
@@ -10,27 +18,6 @@ class Home_screen extends StatefulWidget {
 }
 
 class _Home_screenState extends State<Home_screen> {
-  final List<Map<String, dynamic>> products = [
-    {
-      'name': 'Banana',
-      'image': 'assets/banana.png',
-      'rating': '⭐ 4.8 (287)',
-      'price': 'Rs.58'
-    },
-    {
-      'name': 'Apples',
-      'image': 'assets/apple.png',
-      'rating': '⭐ 4.8 (287)',
-      'price': 'Rs.100'
-    },
-    {
-      'name': 'Oranges',
-      'image': 'assets/orange.png',
-      'rating': '⭐ 4.8 (287)',
-      'price': 'Rs.110'
-    },
-  ];
-
   bool _isBasketVisible = false;
   List<String> _cartItems = [];
 
@@ -94,7 +81,7 @@ class _Home_screenState extends State<Home_screen> {
                             children: [
                               SizedBox(width: 10),
                               Column(
-                                spacing: 7,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: 40),
                                   Text(
@@ -103,11 +90,13 @@ class _Home_screenState extends State<Home_screen> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Text("Enjoy our big offer",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Color(0xFFA5CC65),
-                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    "Enjoy our big offer",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xFFA5CC65),
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                   Container(
                                     height: 40,
                                     width: 100,
@@ -146,7 +135,7 @@ class _Home_screenState extends State<Home_screen> {
                             children: [
                               SizedBox(width: 10),
                               Column(
-                                spacing: 7,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: 40),
                                   Text(
@@ -155,11 +144,13 @@ class _Home_screenState extends State<Home_screen> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Text("Enjoy our big offer",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Color(0xFFA5CC65),
-                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    "Enjoy our big offer",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xFFA5CC65),
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                   Container(
                                     height: 40,
                                     width: 100,
@@ -199,7 +190,7 @@ class _Home_screenState extends State<Home_screen> {
                             children: [
                               SizedBox(width: 10),
                               Column(
-                                spacing: 7,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: 40),
                                   Text(
@@ -208,11 +199,13 @@ class _Home_screenState extends State<Home_screen> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Text("Enjoy our big offer",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Color(0xFFA5CC65),
-                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    "Enjoy our big offer",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xFFA5CC65),
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                   Container(
                                     height: 40,
                                     width: 100,
@@ -273,12 +266,13 @@ class _Home_screenState extends State<Home_screen> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    spacing: 20,
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Column(children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => FruitsCategoryScreen()));
+                          },
                           icon: ClipOval(
                             child: CircleAvatar(
                               backgroundColor: Color(0xFF595959),
@@ -298,7 +292,10 @@ class _Home_screenState extends State<Home_screen> {
                       ]),
                       Column(children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => DairyCategoryScreen()));
+                          },
                           icon: ClipOval(
                             child: CircleAvatar(
                               backgroundColor: Color(0xFF595959),
@@ -317,7 +314,11 @@ class _Home_screenState extends State<Home_screen> {
                       ]),
                       Column(children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    Vegetablescategoryscreen()));
+                          },
                           icon: ClipOval(
                             child: CircleAvatar(
                               backgroundColor: Color(0xFF595959),
@@ -337,13 +338,18 @@ class _Home_screenState extends State<Home_screen> {
                       ]),
                       Column(children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    BeveragesCategoryScreen()));
+                          },
                           icon: ClipOval(
                             child: CircleAvatar(
-                                backgroundColor: Color(0xFF595959),
-                                radius: 35,
-                                backgroundImage:
-                                    AssetImage('assets/beverage1.png')),
+                              backgroundColor: Color(0xFF595959),
+                              radius: 35,
+                              backgroundImage:
+                                  AssetImage('assets/beverage1.png'),
+                            ),
                           ),
                         ),
                         Text(
@@ -356,13 +362,16 @@ class _Home_screenState extends State<Home_screen> {
                       ]),
                       Column(children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => SnacksCategoryScreen()));
+                          },
                           icon: ClipOval(
                             child: CircleAvatar(
-                                backgroundColor: Color(0xFF595959),
-                                radius: 35,
-                                backgroundImage:
-                                    AssetImage('assets/snack1.png')),
+                              backgroundColor: Color(0xFF595959),
+                              radius: 35,
+                              backgroundImage: AssetImage('assets/snack1.png'),
+                            ),
                           ),
                         ),
                         Text(
@@ -375,16 +384,20 @@ class _Home_screenState extends State<Home_screen> {
                       ]),
                       Column(children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => PulsesCategoryScreen()));
+                          },
                           icon: ClipOval(
                             child: CircleAvatar(
-                                backgroundColor: Color(0xFF595959),
-                                radius: 35,
-                                backgroundImage: AssetImage('assets/egg1.png')),
+                              backgroundColor: Color(0xFF595959),
+                              radius: 35,
+                              backgroundImage: AssetImage('assets/pulses.png'),
+                            ),
                           ),
                         ),
                         Text(
-                          "Eggs",
+                          "Pulses",
                           style: TextStyle(
                               fontSize: 15,
                               color: Color(0xFF1E1E1E),
@@ -423,80 +436,87 @@ class _Home_screenState extends State<Home_screen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: List.generate(
-                      products.length,
+                      3,
                       (index) {
-                        final product = products[index];
-                        return Container(
-                          margin: EdgeInsets.only(right: 10),
-                          height: 240,
-                          width: 180,
-                          decoration: BoxDecoration(
-                            color: Colors.white38,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 120,
-                                width: 180,
-                                child: Image.asset(
-                                  product['image'],
-                                  fit: BoxFit.cover,
-                                ),
+                        final fruit = allfruits[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    FruitDetailScreen(fruit: fruit),
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      product['name'],
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color(0xFF1E1E1E),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {
-                                        _addToCart(product['name']);
-                                      },
-                                      icon: Icon(
-                                        Icons.add,
-                                        color: Color(0xFF1E1E1E),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Text(
-                                  product['rating'],
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color(0xFF1E1E1E),
-                                    fontWeight: FontWeight.bold,
+                            );
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: 10),
+                            height: 240,
+                            width: 180,
+                            decoration: BoxDecoration(
+                              color: Colors.white38,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 120,
+                                  width: 180,
+                                  child: Image.asset(
+                                    fruit['image'],
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Text(
-                                  product['price'],
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color(0xFF1E1E1E),
-                                    fontWeight: FontWeight.bold,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        fruit['name'],
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Color(0xFF1E1E1E),
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          _addToCart(fruit['name']);
+                                        },
+                                        icon: Icon(
+                                          Icons.add,
+                                          color: Color(0xFF1E1E1E),
+                                        ),
+                                      )
+                                    ],
                                   ),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
+                                    fruit['rating'],
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        color: Color(0xFF1E1E1E),
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
+                                    fruit['price'],
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        color: Color(0xFF1E1E1E),
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
@@ -527,7 +547,7 @@ class _Home_screenState extends State<Home_screen> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
-                          children: products
+                          children: allfruits
                               .where((product) =>
                                   _cartItems.contains(product['name']))
                               .map((product) {
@@ -568,24 +588,24 @@ class _Home_screenState extends State<Home_screen> {
         onDestinationSelected: (val) {
           setState(() {
             selectbottomitemindex = val;
-            switch (selectbottomitemindex) {
-              case 0:
-                Navigator.of(context).pushNamed('/');
-                break;
-              case 1:
-                Navigator.of(context).pushNamed('favourite');
-                break;
-              case 2:
-                Navigator.of(context).pushNamed('search');
-                break;
-              case 3:
-                Navigator.of(context).pushNamed('profile');
-                break;
-              case 4:
-                Navigator.of(context).pushNamed('menu');
-                break;
-            }
           });
+          switch (selectbottomitemindex) {
+            case 0:
+              Navigator.pushNamed(context, '/');
+              break;
+            case 1:
+              Navigator.pushNamed(context, 'favourite');
+              break;
+            case 2:
+              Navigator.pushNamed(context, 'search');
+              break;
+            case 3:
+              Navigator.pushNamed(context, 'profile');
+              break;
+            case 4:
+              Navigator.pushNamed(context, 'menu');
+              break;
+          }
         },
         destinations: const [
           NavigationDestination(
