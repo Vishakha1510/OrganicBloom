@@ -40,11 +40,13 @@ class _Home_screenState extends State<Home_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFA5CC65),
+        foregroundColor: Colors.white,
         title: TextButton(
           onPressed: () {},
           child: Text(
             "364, Street... v",
-            style: TextStyle(fontSize: 18, color: Color(0xFF1E1E1E)),
+            style: TextStyle(fontSize: 18, color: Colors.white),
           ),
         ),
         actions: [
@@ -54,7 +56,6 @@ class _Home_screenState extends State<Home_screen> {
               },
               icon: Icon(
                 Icons.shopping_bag_rounded,
-                color: Color(0xFF1E1E1E),
               ))
         ],
       ),
@@ -64,6 +65,7 @@ class _Home_screenState extends State<Home_screen> {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
+                SizedBox(height: 10),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
