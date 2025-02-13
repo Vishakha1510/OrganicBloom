@@ -26,7 +26,7 @@ class _FruitsCategoryScreenState extends State<FruitsCategoryScreen> {
             mainAxisSpacing: 10,
             childAspectRatio: 3 / 4,
           ),
-          itemCount: 12,
+          itemCount: 14,
           itemBuilder: (context, index) {
             final fruit = allfruits[index];
             return GestureDetector(

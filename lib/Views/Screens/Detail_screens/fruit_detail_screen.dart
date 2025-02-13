@@ -81,13 +81,21 @@ class _FruitDetailScreenState extends State<FruitDetailScreen> {
               // Price
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  widget.fruit['price'],
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green[800],
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.fruit['price'],
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green[800],
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.favorite_border, size: 35))
+                  ],
                 ),
               ),
               SizedBox(height: 20),
