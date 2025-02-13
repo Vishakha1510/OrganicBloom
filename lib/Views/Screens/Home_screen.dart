@@ -97,21 +97,29 @@ class _Home_screenState extends State<Home_screen> {
                                         color: Color(0xFFA5CC65),
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Container(
-                                    height: 40,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                        color: Colors.green,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Center(
-                                        child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    )),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Vegetablescategoryscreen()));
+                                    },
+                                    child: Container(
+                                      height: 40,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Center(
+                                          child: Text(
+                                        "Shop Now",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                    ),
                                   )
                                 ],
                               ),
@@ -151,21 +159,29 @@ class _Home_screenState extends State<Home_screen> {
                                         color: Color(0xFFA5CC65),
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Container(
-                                    height: 40,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                        color: Colors.green,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Center(
-                                        child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    )),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  BeveragesCategoryScreen()));
+                                    },
+                                    child: Container(
+                                      height: 40,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Center(
+                                          child: Text(
+                                        "Shop Now",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                    ),
                                   )
                                 ],
                               ),
@@ -206,21 +222,29 @@ class _Home_screenState extends State<Home_screen> {
                                         color: Color(0xFFA5CC65),
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Container(
-                                    height: 40,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                        color: Colors.green,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Center(
-                                        child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    )),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  FruitsCategoryScreen()));
+                                    },
+                                    child: Container(
+                                      height: 40,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Center(
+                                          child: Text(
+                                        "Shop Now",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                    ),
                                   )
                                 ],
                               ),

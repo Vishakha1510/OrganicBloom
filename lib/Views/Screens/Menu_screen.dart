@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Views/Screens/Fruits_category_screen.dart';
 import 'package:organicbloom/Views/Screens/Home_screen.dart';
+import 'package:organicbloom/Views/Screens/bevegares_category_screen.dart';
+import 'package:organicbloom/Views/Screens/dairy_category_screen.dart';
+import 'package:organicbloom/Views/Screens/pulses_category_screen.dart';
+import 'package:organicbloom/Views/Screens/snacks_category_screen.dart';
+import 'package:organicbloom/Views/Screens/vegetable_category_screen.dart';
 
 class Menu_screen extends StatefulWidget {
   const Menu_screen({super.key});
@@ -26,7 +32,10 @@ class _Menu_screenState extends State<Menu_screen> {
         crossAxisCount: 2,
         children: <Widget>[
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => FruitsCategoryScreen()));
+            },
             child: Container(
               height: 270,
               width: 200,
@@ -40,11 +49,11 @@ class _Menu_screenState extends State<Menu_screen> {
                       height: 120,
                       width: 200,
                       child: Image(
-                        image: AssetImage('assets/vfbasket.png'),
+                        image: AssetImage('assets/fruitbasket1.png'),
                         fit: BoxFit.fitWidth,
                       )),
                   Text(
-                    "Fruits & vegetables",
+                    "Fruits",
                     style: TextStyle(fontSize: 18, color: Color(0xFF1E1E1E)),
                   )
                 ],
@@ -52,7 +61,10 @@ class _Menu_screenState extends State<Menu_screen> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Vegetablescategoryscreen()));
+            },
             child: Container(
               height: 270,
               width: 200,
@@ -66,11 +78,11 @@ class _Menu_screenState extends State<Menu_screen> {
                       height: 120,
                       width: 200,
                       child: Image(
-                        image: AssetImage('assets/breakfast.png'),
+                        image: AssetImage('assets/vegbasket1.png'),
                         fit: BoxFit.fitWidth,
                       )),
                   Text(
-                    "Breakfast",
+                    "Vegetables",
                     style: TextStyle(fontSize: 18, color: Color(0xFF1E1E1E)),
                   )
                 ],
@@ -78,7 +90,10 @@ class _Menu_screenState extends State<Menu_screen> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => BeveragesCategoryScreen()));
+            },
             child: Container(
               height: 270,
               width: 200,
@@ -104,7 +119,10 @@ class _Menu_screenState extends State<Menu_screen> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PulsesCategoryScreen()));
+            },
             child: Container(
               height: 270,
               width: 200,
@@ -118,11 +136,11 @@ class _Menu_screenState extends State<Menu_screen> {
                       height: 120,
                       width: 200,
                       child: Image(
-                        image: AssetImage('assets/meat&fish.png'),
+                        image: AssetImage('assets/pulses.png'),
                         fit: BoxFit.fitWidth,
                       )),
                   Text(
-                    "Meat&Fish",
+                    "Grains and Pulses",
                     style: TextStyle(fontSize: 18, color: Color(0xFF1E1E1E)),
                   )
                 ],
@@ -130,7 +148,10 @@ class _Menu_screenState extends State<Menu_screen> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => SnacksCategoryScreen()));
+            },
             child: Container(
               height: 270,
               width: 200,
@@ -156,7 +177,10 @@ class _Menu_screenState extends State<Menu_screen> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => DairyCategoryScreen()));
+            },
             child: Container(
               height: 270,
               width: 200,
