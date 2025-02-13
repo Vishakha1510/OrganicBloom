@@ -466,7 +466,7 @@ class _Home_screenState extends State<Home_screen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: List.generate(
-                      3,
+                      4,
                       (index) {
                         final fruit = allfruits[index];
                         return GestureDetector(
