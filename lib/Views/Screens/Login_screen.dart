@@ -95,7 +95,7 @@ class _Login_screenState extends State<Login_screen> {
                       Navigator.of(context).pushNamed('signup');
                     },
                     child: Text(
-                      "Singup",
+                      "Signup",
                       style: TextStyle(color: Color(0xFFA5CC65)),
                     ),
                   ),
