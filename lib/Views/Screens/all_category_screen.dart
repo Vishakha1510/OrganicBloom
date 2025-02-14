@@ -26,10 +26,10 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
         child: GridView.builder(
           itemCount: categories.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // 3 items per row
-            mainAxisSpacing: 15, // Space between rows
-            crossAxisSpacing: 15, // Space between columns
-            childAspectRatio: 0.8, // Adjust the aspect ratio of items
+            crossAxisCount: 2,
+            mainAxisSpacing: 15,
+            crossAxisSpacing: 15,
+            childAspectRatio: 0.8,
           ),
           itemBuilder: (context, index) {
             final category = categories[index];
@@ -37,8 +37,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) =>
-                        category['screen'], // Ensure this is a Widget
+                    builder: (context) => category['screen'],
                   ),
                 );
               },
@@ -46,16 +45,14 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color:
-                          Colors.grey.withOpacity(0.5), // Adjust shadow opacity
-                      spreadRadius: 2, // Spread radius
-                      blurRadius: 5, // Blur radius
-                      offset: Offset(0, 3), // Shadow offset
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
                     ),
                   ],
-                  color: Colors.white, // Add a background color if needed
-                  borderRadius: BorderRadius.circular(
-                      10), // Add rounded corners if required
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -64,13 +61,12 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                       child: CircleAvatar(
                         backgroundColor: const Color(0xFF595959),
                         radius: 35,
-                        backgroundImage: AssetImage(
-                            category['image']), // Ensure this path is correct
+                        backgroundImage: AssetImage(category['image']),
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      category['name'], // Ensure this is a valid string
+                      category['name'],
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
