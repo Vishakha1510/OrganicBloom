@@ -15,7 +15,7 @@ class _Intro_screenState extends State<Intro_screen> {
       backgroundColor: Color(0xFFF4F4F5),
       body: Center(
         child: Column(
-          spacing: 20,
+          spacing: 30,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
@@ -24,11 +24,14 @@ class _Intro_screenState extends State<Intro_screen> {
             Text("ORGANIC\n          BLOOM",
                 style: GoogleFonts.rubikBubbles(
                     fontSize: 40, color: Color((0xFFA5CC65)))),
+            SizedBox(
+              height: 20,
+            ),
             OutlinedButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed('login');
                 },
-                child: Text("Start"))
+                child: Text("Get Started -->"))
           ],
         ),
       ),
