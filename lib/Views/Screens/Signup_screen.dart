@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Views/Screens/Login_screen.dart';
 
 class Signup_screen extends StatefulWidget {
   const Signup_screen({super.key});
@@ -122,7 +123,11 @@ class _Signup_screenState extends State<Signup_screen> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Login_screen(),
+                        ));
+                      },
                       child: Text(
                         "Login",
                         style: TextStyle(color: Color(0xFFA5CC65)),

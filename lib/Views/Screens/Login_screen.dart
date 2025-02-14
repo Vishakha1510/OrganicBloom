@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Views/Screens/Home_screen.dart';
 
 class Login_screen extends StatefulWidget {
   const Login_screen({super.key});
@@ -70,7 +71,11 @@ class _Login_screenState extends State<Login_screen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Home_screen(),
+                    ));
+                  },
                   child: Text(
                     "LOG IN",
                     style: TextStyle(
