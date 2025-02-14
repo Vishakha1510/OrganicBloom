@@ -14,6 +14,7 @@ class _VegetableDetailScrState extends State<VegetableDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
