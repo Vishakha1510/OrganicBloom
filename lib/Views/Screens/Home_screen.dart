@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Lists/Catergory_list.dart';
 import 'package:organicbloom/Lists/Fruits_list.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/fruit_detail_screen.dart';
 import 'package:organicbloom/Views/Screens/Fruits_category_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
+import 'package:organicbloom/Views/Screens/all_category_screen.dart';
 import 'package:organicbloom/Views/Screens/bevegares_category_screen.dart';
-import 'package:organicbloom/Views/Screens/dairy_category_screen.dart';
-import 'package:organicbloom/Views/Screens/pulses_category_screen.dart';
-import 'package:organicbloom/Views/Screens/snacks_category_screen.dart';
 import 'package:organicbloom/Views/Screens/vegetable_category_screen.dart';
 
 int selectbottomitemindex = 0;
@@ -281,7 +280,10 @@ class _Home_screenState extends State<Home_screen> {
                     ),
                     SizedBox(width: 200),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AllCategoryScreen()));
+                      },
                       child: Text(
                         "See all",
                         style: TextStyle(
@@ -292,149 +294,45 @@ class _Home_screenState extends State<Home_screen> {
                     )
                   ],
                 ),
-                SizedBox(height: 5),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Column(children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => FruitsCategoryScreen()));
-                          },
-                          icon: ClipOval(
-                            child: CircleAvatar(
-                              backgroundColor: Color(0xFF595959),
-                              radius: 35,
-                              backgroundImage:
-                                  AssetImage('assets/fruitbasket2.png'),
+                SizedBox(
+                  height: 120,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      final category = categories[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Column(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => category['screen']),
+                                );
+                              },
+                              icon: ClipOval(
+                                child: CircleAvatar(
+                                  backgroundColor: Color(0xFF595959),
+                                  radius: 35,
+                                  backgroundImage:
+                                      AssetImage(category['image']),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Text(
-                          "Fruits",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Color(0xFF1E1E1E),
-                              fontWeight: FontWeight.bold),
-                        )
-                      ]),
-                      Column(children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => DairyCategoryScreen()));
-                          },
-                          icon: ClipOval(
-                            child: CircleAvatar(
-                              backgroundColor: Color(0xFF595959),
-                              radius: 35,
-                              backgroundImage: AssetImage('assets/dairy1.png'),
+                            Text(
+                              category['name'],
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Color(0xFF1E1E1E),
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                        Text(
-                          "Dairy",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Color(0xFF1E1E1E),
-                              fontWeight: FontWeight.bold),
-                        )
-                      ]),
-                      Column(children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    Vegetablescategoryscreen()));
-                          },
-                          icon: ClipOval(
-                            child: CircleAvatar(
-                              backgroundColor: Color(0xFF595959),
-                              radius: 35,
-                              backgroundImage:
-                                  AssetImage('assets/vegbasket2.png'),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Vegetables",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Color(0xFF1E1E1E),
-                              fontWeight: FontWeight.bold),
-                        )
-                      ]),
-                      Column(children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    BeveragesCategoryScreen()));
-                          },
-                          icon: ClipOval(
-                            child: CircleAvatar(
-                              backgroundColor: Color(0xFF595959),
-                              radius: 35,
-                              backgroundImage:
-                                  AssetImage('assets/beverage1.png'),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Beverages",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Color(0xFF1E1E1E),
-                              fontWeight: FontWeight.bold),
-                        )
-                      ]),
-                      Column(children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => SnacksCategoryScreen()));
-                          },
-                          icon: ClipOval(
-                            child: CircleAvatar(
-                              backgroundColor: Color(0xFF595959),
-                              radius: 35,
-                              backgroundImage: AssetImage('assets/snack1.png'),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Snacks",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Color(0xFF1E1E1E),
-                              fontWeight: FontWeight.bold),
-                        )
-                      ]),
-                      Column(children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => PulsesCategoryScreen()));
-                          },
-                          icon: ClipOval(
-                            child: CircleAvatar(
-                              backgroundColor: Color(0xFF595959),
-                              radius: 35,
-                              backgroundImage: AssetImage('assets/pulses.png'),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Pulses",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Color(0xFF1E1E1E),
-                              fontWeight: FontWeight.bold),
-                        )
-                      ]),
-                    ],
+                      );
+                    },
                   ),
                 ),
                 SizedBox(height: 10),
@@ -450,7 +348,10 @@ class _Home_screenState extends State<Home_screen> {
                     ),
                     SizedBox(width: 200),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => FruitsCategoryScreen()));
+                      },
                       child: Text(
                         "See all",
                         style: TextStyle(
