@@ -19,15 +19,19 @@ class Home_screen extends StatefulWidget {
 
 class _Home_screenState extends State<Home_screen> {
   bool _isBasketVisible = false;
-  List<String> _cartItems = [];
+  Map<String, int> _cartItems = {}; // Key: product name, Value: quantity
 
   void _addToCart(String productName) {
     setState(() {
-      _cartItems.add(productName);
+      if (_cartItems.containsKey(productName)) {
+        _cartItems[productName] = _cartItems[productName]! + 1;
+      } else {
+        _cartItems[productName] = 1;
+      }
       _isBasketVisible = true;
     });
 
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 5), () {
       if (mounted && _cartItems.isNotEmpty) {
         setState(() {
           _isBasketVisible = false;
@@ -459,6 +463,7 @@ class _Home_screenState extends State<Home_screen> {
           ),
 
           // Basket popup
+
           if (_isBasketVisible)
             Align(
               alignment: Alignment.bottomCenter,
@@ -480,18 +485,47 @@ class _Home_screenState extends State<Home_screen> {
                         child: Row(
                           children: allfruits
                               .where((product) =>
-                                  _cartItems.contains(product['name']))
+                                  _cartItems.containsKey(product['name']))
                               .map((product) {
+                            final productName = product['name'];
+                            final quantity = _cartItems[productName] ?? 0;
+
                             return Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: ClipOval(
-                                child: Image.asset(
-                                  product['image'],
-                                  width: 40,
-                                  height: 40,
-                                  fit: BoxFit.cover,
-                                ),
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      product['image'],
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  if (quantity > 0)
+                                    Positioned(
+                                      top: -5,
+                                      right: -5,
+                                      child: Container(
+                                        padding: EdgeInsets.all(4),
+                                        decoration: BoxDecoration(
+                                          color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        child: Text(
+                                          '$quantity',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
                             );
                           }).toList(),
@@ -511,7 +545,7 @@ class _Home_screenState extends State<Home_screen> {
                   ],
                 ),
               ),
-            ),
+            )
         ],
       ),
       bottomNavigationBar: NavigationBar(
