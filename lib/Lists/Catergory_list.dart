@@ -1,9 +1,9 @@
-import 'package:organicbloom/Views/Screens/Fruits_category_screen.dart';
-import 'package:organicbloom/Views/Screens/bevegares_category_screen.dart';
-import 'package:organicbloom/Views/Screens/dairy_category_screen.dart';
-import 'package:organicbloom/Views/Screens/pulses_category_screen.dart';
-import 'package:organicbloom/Views/Screens/snacks_category_screen.dart';
-import 'package:organicbloom/Views/Screens/vegetable_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/Fruits_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/bevegares_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/dairy_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/pulses_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/snacks_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/vegetable_category_screen.dart';
 
 List<Map<String, dynamic>> categories = [
   {

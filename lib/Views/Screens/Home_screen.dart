@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Catergory_list.dart';
 import 'package:organicbloom/Lists/Fruits_list.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/Fruits_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/all_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/bevegares_category_screen.dart';
+import 'package:organicbloom/Views/Screens/Category_screens/vegetable_category_screen.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/fruit_detail_screen.dart';
-import 'package:organicbloom/Views/Screens/Fruits_category_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
-import 'package:organicbloom/Views/Screens/all_category_screen.dart';
-import 'package:organicbloom/Views/Screens/bevegares_category_screen.dart';
-import 'package:organicbloom/Views/Screens/vegetable_category_screen.dart';
 
 int selectbottomitemindex = 0;
 
