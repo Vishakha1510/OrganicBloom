@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Nutsandseed_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/nutsandseeds_detail_screen.dart';
 
 class NutsandseedsCategoryScreen extends StatefulWidget {
   const NutsandseedsCategoryScreen({super.key});
@@ -32,8 +33,9 @@ class _NutsandseedsCategoryScreenState
             final nutseed = nutsAndSeeds[index];
             return GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => FruitDetailScreen(fruit: fruit)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        NutsAndSeedsDetailScreen(nutOrSeedItem: nutseed)));
               },
               child: Container(
                 decoration: BoxDecoration(

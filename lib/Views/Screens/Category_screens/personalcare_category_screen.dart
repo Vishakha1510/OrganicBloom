@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Personal_care_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/personalcare_detail_screen.dart';
 
 class PersonalcareCategoryScreen extends StatefulWidget {
   const PersonalcareCategoryScreen({super.key});
@@ -32,8 +33,9 @@ class _PersonalcareCategoryScreenState
             final personalcare = personalCareItems[index];
             return GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => FruitDetailScreen(fruit: fruit)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => PersonalCareDetailScreen(
+                        personalCareItem: personalcare)));
               },
               child: Container(
                 decoration: BoxDecoration(

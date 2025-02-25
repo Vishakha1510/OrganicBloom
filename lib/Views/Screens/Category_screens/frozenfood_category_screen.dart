@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Frozen_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/frozenfood_detail_screen.dart';
 
 class FrozenfoodCategoryScreen extends StatefulWidget {
   const FrozenfoodCategoryScreen({super.key});
@@ -31,8 +32,9 @@ class _FrozenfoodCategoryScreenState extends State<FrozenfoodCategoryScreen> {
             final frozen = frozenVegFoodItems[index];
             return GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => FruitDetailScreen(fruit: fruit)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        FrozenVegFoodDetailScreen(foodItem: frozen)));
               },
               child: Container(
                 decoration: BoxDecoration(

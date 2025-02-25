@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Grains_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/grains_detail_screen.dart';
 
 class GrainsCategoryScreen extends StatefulWidget {
   const GrainsCategoryScreen({super.key});
@@ -30,8 +31,8 @@ class _GrainsCategoryScreenState extends State<GrainsCategoryScreen> {
             final grains = Grains[index];
             return GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => FruitDetailScreen(fruit: fruit)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => GrainDetailScreen(grain: grains)));
               },
               child: Container(
                 decoration: BoxDecoration(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Bakery_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/bakery_detail_screen.dart';
 
 class BakeryCategoryScreen extends StatefulWidget {
   const BakeryCategoryScreen({super.key});
@@ -30,8 +31,9 @@ class _BakeryCategoryScreenState extends State<BakeryCategoryScreen> {
             final bakery = BakeryItems[index];
             return GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => FruitDetailScreen(fruit: fruit)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        BakeryDetailScreen(bakeryItem: bakery)));
               },
               child: Container(
                 decoration: BoxDecoration(

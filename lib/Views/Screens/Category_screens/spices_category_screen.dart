@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Spices_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/spices_detail_screen.dart';
 
 class SpicesCategoryScreen extends StatefulWidget {
   const SpicesCategoryScreen({super.key});
@@ -30,8 +31,8 @@ class _SpicesCategoryScreenState extends State<SpicesCategoryScreen> {
             final spices = Spices[index];
             return GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => FruitDetailScreen(fruit: fruit)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => SpiceDetailScreen(spice: spices)));
               },
               child: Container(
                 decoration: BoxDecoration(

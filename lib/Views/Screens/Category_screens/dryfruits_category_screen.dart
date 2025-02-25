@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Dryfruit_list.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/dryfruit_detail_screen.dart';
 
 class DryfruitsCategoryScreen extends StatefulWidget {
   const DryfruitsCategoryScreen({super.key});
@@ -31,8 +32,9 @@ class _DryfruitsCategoryScreenState extends State<DryfruitsCategoryScreen> {
             final dryfruit = dryFruits[index];
             return GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => FruitDetailScreen(fruit: fruit)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        DryFruitsDetailScreen(dryFruitItem: dryfruit)));
               },
               child: Container(
                 decoration: BoxDecoration(
