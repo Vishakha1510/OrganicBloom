@@ -1,0 +1,122 @@
+List<Map<String, dynamic>> BakeryItems = [
+  {
+    'name': 'Naan',
+    'image': 'assets/naan.png',
+    'rating': '⭐ 4.8 (300)',
+    'price': 'Rs.50',
+    'description':
+        'Soft, fluffy organic naan baked to perfection, ideal with curries.',
+    'nutrition': {
+      'Calories': '260 kcal',
+      'Carbs': '45g',
+      'Protein': '7g',
+      'Fat': '4g',
+    },
+  },
+  {
+    'name': 'Muffins',
+    'image': 'assets/muffins.png',
+    'rating': '⭐ 4.6 (190)',
+    'price': 'Rs.100',
+    'description':
+        'Soft, fluffy muffins available in blueberry, chocolate, and vanilla.',
+    'nutrition': {
+      'Calories': '240 kcal',
+      'Carbs': '34g',
+      'Protein': '4g',
+      'Fat': '9g',
+    },
+  },
+  {
+    'name': 'Croissant',
+    'image': 'assets/croissant.png',
+    'rating': '⭐ 4.7 (220)',
+    'price': 'Rs.150',
+    'description': 'Buttery, flaky croissant crafted with organic ingredients.',
+    'nutrition': {
+      'Calories': '230 kcal',
+      'Carbs': '26g',
+      'Protein': '5g',
+      'Fat': '12g',
+    },
+  },
+  {
+    'name': 'Khari',
+    'image': 'assets/khari.png',
+    'rating': '⭐ 4.8 (270)',
+    'price': 'Rs.80',
+    'description':
+        'Crispy, flaky khari biscuits made with organic ingredients.',
+    'nutrition': {
+      'Calories': '150 kcal',
+      'Carbs': '12g',
+      'Protein': '2g',
+      'Fat': '10g',
+    },
+  },
+  {
+    'name': 'Jeera Biscuit',
+    'image': 'assets/jeerabiscuit.png',
+    'rating': '⭐ 4.7 (220)',
+    'price': 'Rs.70',
+    'description': 'Crunchy cumin-flavored biscuits, perfect with chai.',
+    'nutrition': {
+      'Calories': '130 kcal',
+      'Carbs': '15g',
+      'Protein': '2g',
+      'Fat': '6g',
+    },
+  },
+  {
+    'name': 'Mathri',
+    'image': 'assets/mathri.png',
+    'rating': '⭐ 4.8 (180)',
+    'price': 'Rs.100',
+    'description': 'Crispy, savory Rajasthani mathri made with organic wheat.',
+    'nutrition': {
+      'Calories': '200 kcal',
+      'Carbs': '25g',
+      'Protein': '3g',
+      'Fat': '10g',
+    },
+  },
+  {
+    'name': 'Rusk',
+    'image': 'assets/rusk.png',
+    'rating': '⭐ 4.6 (240)',
+    'price': 'Rs.90',
+    'description': 'Crunchy tea-time rusk, baked from organic whole wheat.',
+    'nutrition': {
+      'Calories': '150 kcal',
+      'Carbs': '28g',
+      'Protein': '4g',
+      'Fat': '3g',
+    },
+  },
+  {
+    'name': 'Bun Maska',
+    'image': 'assets/bunmaska.png',
+    'rating': '⭐ 4.9 (310)',
+    'price': 'Rs.60',
+    'description': 'Classic Mumbai-style bun maska, soft and buttery.',
+    'nutrition': {
+      'Calories': '250 kcal',
+      'Carbs': '30g',
+      'Protein': '5g',
+      'Fat': '10g',
+    },
+  },
+  {
+    'name': 'Atta Cake',
+    'image': 'assets/attacake.png',
+    'rating': '⭐ 4.8 (200)',
+    'price': 'Rs.150',
+    'description': 'Moist and healthy whole wheat cake with organic jaggery.',
+    'nutrition': {
+      'Calories': '220 kcal',
+      'Carbs': '30g',
+      'Protein': '4g',
+      'Fat': '8g',
+    },
+  },
+];

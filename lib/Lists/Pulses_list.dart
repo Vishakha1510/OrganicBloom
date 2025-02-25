@@ -53,7 +53,7 @@ List<Map<String, dynamic>> pulses = [
   },
   {
     'name': 'Masoor Dal',
-    'image': 'assets/masoor_dal.png',
+    'image': 'assets/lentils.png',
     'price': 'Rs.130/kg',
     'rating': '⭐ 4.7 (400)',
     'description': 'Iron-rich masoor dal, great for healthy soups and curries.',
