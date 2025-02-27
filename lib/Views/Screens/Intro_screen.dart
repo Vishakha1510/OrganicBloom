@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:organicbloom/Views/Screens/Login_screen.dart';
 
 class Intro_screen extends StatefulWidget {
   const Intro_screen({super.key});
@@ -9,6 +11,17 @@ class Intro_screen extends StatefulWidget {
 }
 
 class _Intro_screenState extends State<Intro_screen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Login_screen()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,11 +40,6 @@ class _Intro_screenState extends State<Intro_screen> {
             SizedBox(
               height: 20,
             ),
-            OutlinedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('login');
-                },
-                child: Text("Get Started -->"))
           ],
         ),
       ),

@@ -79,41 +79,40 @@ class _Home_screenState extends State<Home_screen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(width: 20),
-                      Container(
-                          height: 200,
-                          width: 350,
-                          decoration: BoxDecoration(
-                              color: Colors.lightGreen[100],
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(width: 10),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 40),
-                                  Text(
-                                    "Upto 30% offer",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "Enjoy our big offer",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Color(0xFFA5CC65),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Vegetablescategoryscreen()));
-                                    },
-                                    child: Container(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  Vegetablescategoryscreen()));
+                        },
+                        child: Container(
+                            height: 200,
+                            width: 350,
+                            decoration: BoxDecoration(
+                                color: Colors.lightGreen[100],
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(width: 10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 40),
+                                    Text(
+                                      "Upto 30% offer",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "Enjoy our big offer",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color(0xFFA5CC65),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Container(
                                       height: 40,
                                       width: 100,
                                       decoration: BoxDecoration(
@@ -128,54 +127,53 @@ class _Home_screenState extends State<Home_screen> {
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       )),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Container(
-                                  height: 120,
-                                  width: 200,
-                                  child: Image(
-                                    image: AssetImage('assets/vegbasket1.png'),
-                                    fit: BoxFit.contain,
-                                  ))
-                            ],
-                          )),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                    height: 120,
+                                    width: 200,
+                                    child: Image(
+                                      image:
+                                          AssetImage('assets/vegbasket1.png'),
+                                      fit: BoxFit.contain,
+                                    ))
+                              ],
+                            )),
+                      ),
                       SizedBox(width: 20),
-                      Container(
-                          height: 200,
-                          width: 350,
-                          decoration: BoxDecoration(
-                              color: Colors.lightGreen[100],
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Row(
-                            children: [
-                              SizedBox(width: 10),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 40),
-                                  Text(
-                                    "Upto 50% off",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "Enjoy our big offer",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Color(0xFFA5CC65),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  BeveragesCategoryScreen()));
-                                    },
-                                    child: Container(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => BeveragesCategoryScreen()));
+                        },
+                        child: Container(
+                            height: 200,
+                            width: 350,
+                            decoration: BoxDecoration(
+                                color: Colors.lightGreen[100],
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Row(
+                              children: [
+                                SizedBox(width: 10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 40),
+                                    Text(
+                                      "Upto 50% off",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "Enjoy our big offer",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color(0xFFA5CC65),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Container(
                                       height: 40,
                                       width: 100,
                                       decoration: BoxDecoration(
@@ -190,55 +188,53 @@ class _Home_screenState extends State<Home_screen> {
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       )),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Container(
-                                  height: 120,
-                                  width: 200,
-                                  child: Image(
-                                    image: AssetImage('assets/beverage1.png'),
-                                    fit: BoxFit.contain,
-                                  ))
-                            ],
-                          )),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                    height: 120,
+                                    width: 200,
+                                    child: Image(
+                                      image: AssetImage('assets/beverage1.png'),
+                                      fit: BoxFit.contain,
+                                    ))
+                              ],
+                            )),
+                      ),
                       SizedBox(width: 20),
-                      Container(
-                          height: 200,
-                          width: 350,
-                          decoration: BoxDecoration(
-                              color: Colors.lightGreen[100],
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(width: 10),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 40),
-                                  Text(
-                                    "Upto 30% offer",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "Enjoy our big offer",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Color(0xFFA5CC65),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  FruitsCategoryScreen()));
-                                    },
-                                    child: Container(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => FruitsCategoryScreen()));
+                        },
+                        child: Container(
+                            height: 200,
+                            width: 350,
+                            decoration: BoxDecoration(
+                                color: Colors.lightGreen[100],
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(width: 10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 40),
+                                    Text(
+                                      "Upto 30% offer",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "Enjoy our big offer",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color(0xFFA5CC65),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Container(
                                       height: 40,
                                       width: 100,
                                       decoration: BoxDecoration(
@@ -253,20 +249,20 @@ class _Home_screenState extends State<Home_screen> {
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       )),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Container(
-                                  height: 120,
-                                  width: 200,
-                                  child: Image(
-                                    image:
-                                        AssetImage('assets/fruitbasket1.png'),
-                                    fit: BoxFit.contain,
-                                  ))
-                            ],
-                          )),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                    height: 120,
+                                    width: 200,
+                                    child: Image(
+                                      image:
+                                          AssetImage('assets/fruitbasket1.png'),
+                                      fit: BoxFit.contain,
+                                    ))
+                              ],
+                            )),
+                      ),
                       SizedBox(width: 20),
                     ],
                   ),
