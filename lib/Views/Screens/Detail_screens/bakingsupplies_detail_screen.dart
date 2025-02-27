@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class BakingSupplyDetailScreen extends StatefulWidget {
   final Map<String, dynamic> supply;
@@ -15,6 +17,8 @@ class _BakingSupplyDetailScreenState extends State<BakingSupplyDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var favoritesProvider = Provider.of<FavoritesProvider>(context);
+    bool isFav = favoritesProvider.isFavorite(widget.supply['name']);
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -96,9 +100,27 @@ class _BakingSupplyDetailScreenState extends State<BakingSupplyDetailScreen> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite_border, size: 35),
-                    ),
+                      icon: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? Colors.red : Colors.grey,
+                        size: 35,
+                      ),
+                      onPressed: () {
+                        var favoriteProvider = Provider.of<FavoritesProvider>(
+                            context,
+                            listen: false);
+                        if (isFav) {
+                          favoriteProvider
+                              .removeFavorite(widget.supply['name']);
+                        } else {
+                          favoriteProvider.addFavorite({
+                            'name': widget.supply['name'],
+                            'image': widget.supply['image'],
+                            'price': widget.supply['price'],
+                          });
+                        }
+                      },
+                    )
                   ],
                 ),
               ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
 
 class FruitDetailScreen extends StatefulWidget {
   final Map<String, dynamic> fruit;
@@ -11,8 +13,12 @@ class FruitDetailScreen extends StatefulWidget {
 
 class _FruitDetailScreenState extends State<FruitDetailScreen> {
   int quantity = 1;
+
   @override
   Widget build(BuildContext context) {
+    var favoritesProvider = Provider.of<FavoritesProvider>(context);
+    bool isFav = favoritesProvider.isFavorite(widget.fruit['name']);
+
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -79,7 +85,7 @@ class _FruitDetailScreenState extends State<FruitDetailScreen> {
               ),
               SizedBox(height: 10),
 
-              // Price
+              // Price & Favorite Button
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
@@ -94,8 +100,26 @@ class _FruitDetailScreenState extends State<FruitDetailScreen> {
                       ),
                     ),
                     IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.favorite_border, size: 35))
+                      icon: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? Colors.red : Colors.grey,
+                        size: 35,
+                      ),
+                      onPressed: () {
+                        var favoriteProvider = Provider.of<FavoritesProvider>(
+                            context,
+                            listen: false);
+                        if (isFav) {
+                          favoriteProvider.removeFavorite(widget.fruit['name']);
+                        } else {
+                          favoriteProvider.addFavorite({
+                            'name': widget.fruit['name'],
+                            'image': widget.fruit['image'],
+                            'price': widget.fruit['price'],
+                          });
+                        }
+                      },
+                    )
                   ],
                 ),
               ),
@@ -131,11 +155,12 @@ class _FruitDetailScreenState extends State<FruitDetailScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
+                  children:
+                      ["Calories", "Carbs", "Protein", "Fat"].map((nutrient) {
+                    return Column(
                       children: [
                         Text(
-                          "Calories",
+                          nutrient,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -144,79 +169,19 @@ class _FruitDetailScreenState extends State<FruitDetailScreen> {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          widget.fruit['nutrition']['Calories'],
+                          widget.fruit['nutrition'][nutrient],
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey[700],
                           ),
                         ),
                       ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Carbs",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green[800],
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          widget.fruit['nutrition']['Carbs'],
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Protein",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green[800],
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          widget.fruit['nutrition']['Protein'],
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Fat",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green[800],
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          widget.fruit['nutrition']['Fat'],
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    );
+                  }).toList(),
                 ),
               ),
-
               SizedBox(height: 20),
+
               // Quantity Selector
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -264,7 +229,6 @@ class _FruitDetailScreenState extends State<FruitDetailScreen> {
                   ],
                 ),
               ),
-
               SizedBox(height: 20),
 
               // Add to Cart Button

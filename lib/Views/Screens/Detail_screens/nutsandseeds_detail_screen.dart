@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class NutsAndSeedsDetailScreen extends StatefulWidget {
   final Map<String, dynamic> nutOrSeedItem;
@@ -15,6 +17,8 @@ class _NutsAndSeedsDetailScreenState extends State<NutsAndSeedsDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var favoritesProvider = Provider.of<FavoritesProvider>(context);
+    bool isFav = favoritesProvider.isFavorite(widget.nutOrSeedItem['name']);
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -96,8 +100,27 @@ class _NutsAndSeedsDetailScreenState extends State<NutsAndSeedsDetailScreen> {
                       ),
                     ),
                     IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.favorite_border, size: 35))
+                      icon: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? Colors.red : Colors.grey,
+                        size: 35,
+                      ),
+                      onPressed: () {
+                        var favoriteProvider = Provider.of<FavoritesProvider>(
+                            context,
+                            listen: false);
+                        if (isFav) {
+                          favoriteProvider
+                              .removeFavorite(widget.nutOrSeedItem['name']);
+                        } else {
+                          favoriteProvider.addFavorite({
+                            'name': widget.nutOrSeedItem['name'],
+                            'image': widget.nutOrSeedItem['image'],
+                            'price': widget.nutOrSeedItem['price'],
+                          });
+                        }
+                      },
+                    )
                   ],
                 ),
               ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class SpiceDetailScreen extends StatefulWidget {
   final Map<String, dynamic> spice;
@@ -14,6 +16,9 @@ class _SpiceDetailScreenState extends State<SpiceDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var favoritesProvider = Provider.of<FavoritesProvider>(context);
+    bool isFav = favoritesProvider.isFavorite(widget.spice['name']);
+
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -95,8 +100,25 @@ class _SpiceDetailScreenState extends State<SpiceDetailScreen> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite_border, size: 35),
+                      icon: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? Colors.red : Colors.grey,
+                        size: 35,
+                      ),
+                      onPressed: () {
+                        var favoriteProvider = Provider.of<FavoritesProvider>(
+                            context,
+                            listen: false);
+                        if (isFav) {
+                          favoriteProvider.removeFavorite(widget.spice['name']);
+                        } else {
+                          favoriteProvider.addFavorite({
+                            'name': widget.spice['name'],
+                            'image': widget.spice['image'],
+                            'price': widget.spice['price'],
+                          });
+                        }
+                      },
                     )
                   ],
                 ),

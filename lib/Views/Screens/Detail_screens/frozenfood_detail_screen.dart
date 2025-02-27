@@ -1,5 +1,7 @@
 // This Flutter screen displays the details of frozen vegetable food items.
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class FrozenVegFoodDetailScreen extends StatefulWidget {
   final Map<String, dynamic> foodItem;
@@ -16,6 +18,9 @@ class _FrozenVegFoodDetailScreenState extends State<FrozenVegFoodDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var favoritesProvider = Provider.of<FavoritesProvider>(context);
+    bool isFav = favoritesProvider.isFavorite(widget.foodItem['name']);
+
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -97,9 +102,27 @@ class _FrozenVegFoodDetailScreenState extends State<FrozenVegFoodDetailScreen> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite_border, size: 35),
-                    ),
+                      icon: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? Colors.red : Colors.grey,
+                        size: 35,
+                      ),
+                      onPressed: () {
+                        var favoriteProvider = Provider.of<FavoritesProvider>(
+                            context,
+                            listen: false);
+                        if (isFav) {
+                          favoriteProvider
+                              .removeFavorite(widget.foodItem['name']);
+                        } else {
+                          favoriteProvider.addFavorite({
+                            'name': widget.foodItem['name'],
+                            'image': widget.foodItem['image'],
+                            'price': widget.foodItem['price'],
+                          });
+                        }
+                      },
+                    )
                   ],
                 ),
               ),

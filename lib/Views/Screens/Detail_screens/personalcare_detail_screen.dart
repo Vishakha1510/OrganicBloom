@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class PersonalCareDetailScreen extends StatefulWidget {
   final Map<String, dynamic> personalCareItem;
@@ -15,6 +17,8 @@ class _PersonalCareDetailScreenState extends State<PersonalCareDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var favoritesProvider = Provider.of<FavoritesProvider>(context);
+    bool isFav = favoritesProvider.isFavorite(widget.personalCareItem['name']);
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -96,9 +100,27 @@ class _PersonalCareDetailScreenState extends State<PersonalCareDetailScreen> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite_border, size: 35),
-                    ),
+                      icon: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? Colors.red : Colors.grey,
+                        size: 35,
+                      ),
+                      onPressed: () {
+                        var favoriteProvider = Provider.of<FavoritesProvider>(
+                            context,
+                            listen: false);
+                        if (isFav) {
+                          favoriteProvider
+                              .removeFavorite(widget.personalCareItem['name']);
+                        } else {
+                          favoriteProvider.addFavorite({
+                            'name': widget.personalCareItem['name'],
+                            'image': widget.personalCareItem['image'],
+                            'price': widget.personalCareItem['price'],
+                          });
+                        }
+                      },
+                    )
                   ],
                 ),
               ),
