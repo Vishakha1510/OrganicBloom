@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> allDairyProducts = [
   {
+    'id': 'dairy_1',
     'name': 'Milk',
     'image': 'assets/milk.png',
     'rating': '⭐ 4.9 (520)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_1',
     'name': 'Cheese',
     'image': 'assets/cheese.png',
     'rating': '⭐ 4.8 (450)',
@@ -28,10 +30,11 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_3',
     'name': 'Butter',
     'image': 'assets/butter.png',
     'rating': '⭐ 4.8 (400)',
-    'price': 'Rs.200/500g',
+    'price': 'Rs.250',
     'description':
         'Smooth and creamy organic butter, made with the finest milk. Ideal for cooking, baking, or spreading.',
     'nutrition': {
@@ -42,10 +45,11 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_4',
     'name': 'Yogurt',
     'image': 'assets/yogurt.png',
     'rating': '⭐ 4.9 (480)',
-    'price': 'Rs.60/500g',
+    'price': 'Rs.60',
     'description':
         'Thick, creamy, and 100% organic yogurt, packed with probiotics to support gut health.',
     'nutrition': {
@@ -56,6 +60,7 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_5',
     'name': 'Paneer',
     'image': 'assets/paneer.png',
     'rating': '⭐ 4.8 (370)',
@@ -70,10 +75,11 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_6',
     'name': 'Cream',
     'image': 'assets/cream.png',
     'rating': '⭐ 4.7 (310)',
-    'price': 'Rs.150/250ml',
+    'price': 'Rs.150',
     'description':
         'Rich, thick, and organic cream, ideal for desserts, sauces, and creamy dishes.',
     'nutrition': {
@@ -84,6 +90,7 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_7',
     'name': 'Ghee',
     'image': 'assets/ghee.png',
     'rating': '⭐ 4.9 (420)',
@@ -98,10 +105,11 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_8',
     'name': 'Ice Cream',
     'image': 'assets/ice_cream.png',
     'rating': '⭐ 4.8 (540)',
-    'price': 'Rs.100/500ml',
+    'price': 'Rs.100',
     'description':
         'Delicious and creamy organic ice cream, available in a variety of natural flavors. A treat for all ages!',
     'nutrition': {
@@ -112,10 +120,11 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_9',
     'name': 'Buttermilk',
     'image': 'assets/buttermilk.png',
     'rating': '⭐ 4.7 (280)',
-    'price': 'Rs.20/200ml',
+    'price': 'Rs.20',
     'description':
         'Refreshing and healthy organic buttermilk, a great way to stay hydrated and aid digestion.',
     'nutrition': {
@@ -126,6 +135,7 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_10',
     'name': 'Whey Protein',
     'image': 'assets/whey_protein.png',
     'rating': '⭐ 4.9 (500)',
@@ -140,10 +150,11 @@ List<Map<String, dynamic>> allDairyProducts = [
     },
   },
   {
+    'id': 'dairy_11',
     'name': 'Kefir',
     'image': 'assets/kefir.png',
     'rating': '⭐ 4.6 (190)',
-    'price': 'Rs.100/500ml',
+    'price': 'Rs.200',
     'description':
         'Fermented organic kefir, packed with probiotics to boost immunity and gut health. A tangy, nutritious drink.',
     'nutrition': {

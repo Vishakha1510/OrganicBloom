@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> frozenVegFoodItems = [
   {
+    'id': 'frozen_1',
     'name': 'Aloo Tikki',
     'image': 'assets/alootikki.png',
     'rating': '⭐ 4.8 (350)',
@@ -13,6 +14,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_2',
     'name': 'Veg Cutlet',
     'image': 'assets/vegcutlet.png',
     'rating': '⭐ 4.7 (300)',
@@ -27,6 +29,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_3',
     'name': 'Paneer Tikka',
     'image': 'assets/paneertikka.png',
     'rating': '⭐ 4.9 (400)',
@@ -41,6 +44,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_4',
     'name': 'Veg Momos',
     'image': 'assets/vegmomos.png',
     'rating': '⭐ 4.8 (270)',
@@ -55,6 +59,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_5',
     'name': 'Samosa',
     'image': 'assets/samosa.png',
     'rating': '⭐ 4.8 (450)',
@@ -68,6 +73,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_6',
     'name': 'Spring Roll',
     'image': 'assets/springroll.png',
     'rating': '⭐ 4.7 (280)',
@@ -81,6 +87,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_7',
     'name': 'Paratha',
     'image': 'assets/frozenparatha.png',
     'rating': '⭐ 4.6 (330)',
@@ -94,6 +101,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_8',
     'name': 'Cheese Balls',
     'image': 'assets/cheeseballs.png',
     'rating': '⭐ 4.8 (290)',
@@ -108,6 +116,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_9',
     'name': 'Kabab',
     'image': 'assets/harabharakabab.png',
     'rating': '⭐ 4.9 (350)',
@@ -122,6 +131,7 @@ List<Map<String, dynamic>> frozenVegFoodItems = [
     },
   },
   {
+    'id': 'frozen_10',
     'name': 'French Fries',
     'image': 'assets/frenchfries.png',
     'rating': '⭐ 4.8 (380)',

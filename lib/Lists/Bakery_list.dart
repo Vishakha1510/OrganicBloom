@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> BakeryItems = [
   {
+    'id': 'bakery_1',
     'name': 'Naan',
     'image': 'assets/naan.png',
     'rating': '⭐ 4.8 (300)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_2',
     'name': 'Muffins',
     'image': 'assets/muffins.png',
     'rating': '⭐ 4.6 (190)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_3',
     'name': 'Croissant',
     'image': 'assets/croissant.png',
     'rating': '⭐ 4.7 (220)',
@@ -41,6 +44,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_4',
     'name': 'Khari',
     'image': 'assets/khari.png',
     'rating': '⭐ 4.8 (270)',
@@ -55,6 +59,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_5',
     'name': 'Jeera Biscuit',
     'image': 'assets/jeerabiscuit.png',
     'rating': '⭐ 4.7 (220)',
@@ -68,6 +73,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_6',
     'name': 'Mathri',
     'image': 'assets/mathri.png',
     'rating': '⭐ 4.8 (180)',
@@ -81,6 +87,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_7',
     'name': 'Rusk',
     'image': 'assets/rusk.png',
     'rating': '⭐ 4.6 (240)',
@@ -94,6 +101,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_8',
     'name': 'Bun Maska',
     'image': 'assets/bunmaska.png',
     'rating': '⭐ 4.9 (310)',
@@ -107,6 +115,7 @@ List<Map<String, dynamic>> BakeryItems = [
     },
   },
   {
+    'id': 'bakery_9',
     'name': 'Atta Cake',
     'image': 'assets/attacake.png',
     'rating': '⭐ 4.8 (200)',

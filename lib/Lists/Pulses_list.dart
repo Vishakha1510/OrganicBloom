@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> pulses = [
   {
+    'id': 'pulse_1',
     'name': 'Toor Dal',
     'image': 'assets/toor_dal.png',
     'price': 'Rs.140/kg',
@@ -13,6 +14,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_2',
     'name': 'Moong Dal',
     'image': 'assets/moong_dal.png',
     'price': 'Rs.120/kg',
@@ -26,6 +28,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_3',
     'name': 'Chana Dal',
     'image': 'assets/chana_dal.png',
     'price': 'Rs.110/kg',
@@ -39,6 +42,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_4',
     'name': 'Urad Dal',
     'image': 'assets/urad_dal.png',
     'price': 'Rs.150/kg',
@@ -52,6 +56,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_5',
     'name': 'Masoor Dal',
     'image': 'assets/lentils.png',
     'price': 'Rs.130/kg',
@@ -65,6 +70,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_6',
     'name': 'Kabuli Chana',
     'image': 'assets/kabuli_chana.png',
     'price': 'Rs.90/kg',
@@ -78,6 +84,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_7',
     'name': 'Rajma',
     'image': 'assets/rajma.png',
     'price': 'Rs.160/kg',
@@ -91,6 +98,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_8',
     'name': 'Green Peas',
     'image': 'assets/green_peas.png',
     'price': 'Rs.130/kg',
@@ -104,6 +112,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_9',
     'name': 'Black Chana',
     'image': 'assets/black_chana.png',
     'price': 'Rs.90/kg',
@@ -118,6 +127,7 @@ List<Map<String, dynamic>> pulses = [
     },
   },
   {
+    'id': 'pulse_10',
     'name': 'Horse Gram',
     'image': 'assets/horse_gram.png',
     'price': 'Rs.100/kg',

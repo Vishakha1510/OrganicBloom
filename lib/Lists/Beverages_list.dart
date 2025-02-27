@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> beverages = [
   {
+    'id': 'beverage_1',
     'name': 'Orange Juice',
     'image': 'assets/orange_juice.png',
     'price': 'Rs.120',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_2',
     'name': 'Iced Latte',
     'image': 'assets/iced_latte.png',
     'price': 'Rs.150',
@@ -27,6 +29,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_3',
     'name': 'Smoothie',
     'image': 'assets/green_smoothie.png',
     'price': 'Rs.180',
@@ -40,6 +43,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_4',
     'name': 'Black Coffee',
     'image': 'assets/black_coffee.png',
     'price': 'Rs.80',
@@ -53,6 +57,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_5',
     'name': 'Mango Lassi',
     'image': 'assets/mango_lassi.png',
     'price': 'Rs.140',
@@ -66,6 +71,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_6',
     'name': 'Herbal Tea',
     'image': 'assets/herbal_tea.png',
     'price': 'Rs.90',
@@ -80,6 +86,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_7',
     'name': 'Lemonade',
     'image': 'assets/lemonade.png',
     'price': 'Rs.100',
@@ -94,6 +101,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_8',
     'name': 'Choco.shake',
     'image': 'assets/chocolate_milkshake.png',
     'price': 'Rs.180',
@@ -107,6 +115,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_9',
     'name': 'Matcha Latte',
     'image': 'assets/matcha_latte.png',
     'price': 'Rs.220',
@@ -121,6 +130,7 @@ List<Map<String, dynamic>> beverages = [
     },
   },
   {
+    'id': 'beverage_10',
     'name': 'Hot Choco.',
     'image': 'assets/hot_chocolate.png',
     'price': 'Rs.150',

@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> dryFruits = [
   {
+    'id': 'dryfruit_1',
     'name': 'Raisins',
     'image': 'assets/raisins.png',
     'rating': '⭐ 4.8 (410)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_2',
     'name': 'Dates',
     'image': 'assets/dates.png',
     'rating': '⭐ 4.9 (380)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_3',
     'name': 'Figs',
     'image': 'assets/figs.png',
     'rating': '⭐ 4.7 (350)',
@@ -42,6 +45,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_4',
     'name': 'Apricots',
     'image': 'assets/apricots.png',
     'rating': '⭐ 4.8 (290)',
@@ -56,6 +60,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_5',
     'name': 'Prunes',
     'image': 'assets/prunes.png',
     'rating': '⭐ 4.6 (260)',
@@ -70,6 +75,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_6',
     'name': 'Dried Cranberries',
     'image': 'assets/cranberries.png',
     'rating': '⭐ 4.7 (320)',
@@ -84,6 +90,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_7',
     'name': 'Dried Mulberries',
     'image': 'assets/mulberries.png',
     'rating': '⭐ 4.8 (240)',
@@ -98,6 +105,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_8',
     'name': 'Cashews',
     'image': 'assets/cashews.png',
     'rating': '⭐ 4.9 (450)',
@@ -112,6 +120,7 @@ List<Map<String, dynamic>> dryFruits = [
     },
   },
   {
+    'id': 'dryfruit_9',
     'name': 'Almonds',
     'image': 'assets/almonds.png',
     'rating': '⭐ 4.9 (500)',

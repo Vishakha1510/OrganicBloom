@@ -27,14 +27,14 @@ class _CondimentsCategoryScreenState extends State<CondimentsCategoryScreen> {
             mainAxisSpacing: 10,
             childAspectRatio: 3 / 4,
           ),
-          itemCount: Condiments.length,
+          itemCount: condiments.length,
           itemBuilder: (context, index) {
-            final condiments = Condiments[index];
+            final condiment = condiments[index];
             return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>
-                        CondimentDetailScreen(condiment: condiments)));
+                        CondimentDetailScreen(condiment: condiment)));
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -50,7 +50,7 @@ class _CondimentsCategoryScreenState extends State<CondimentsCategoryScreen> {
                         top: Radius.circular(10),
                       ),
                       child: Image.asset(
-                        condiments['image'],
+                        condiment['image'],
                         height: 120,
                         width: 200,
                         fit: BoxFit.cover,
@@ -66,7 +66,7 @@ class _CondimentsCategoryScreenState extends State<CondimentsCategoryScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                condiments['name'],
+                                condiment['name'],
                                 style: const TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class _CondimentsCategoryScreenState extends State<CondimentsCategoryScreen> {
                           const SizedBox(height: 5),
                           // Rating
                           Text(
-                            condiments['rating'],
+                            condiment['rating'],
                             style: const TextStyle(
                               fontSize: 14,
                               color: Colors.black54,
@@ -91,7 +91,7 @@ class _CondimentsCategoryScreenState extends State<CondimentsCategoryScreen> {
                           const SizedBox(height: 5),
                           // Price
                           Text(
-                            condiments['price'],
+                            condiment['price'],
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

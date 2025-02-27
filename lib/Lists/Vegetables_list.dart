@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> allVegetables = [
   {
+    'id': 'vegetable_1',
     'name': 'Carrot',
     'image': 'assets/carrot.png',
     'rating': '⭐ 4.7 (150)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_2',
     'name': 'Tomato',
     'image': 'assets/tomato.png',
     'rating': '⭐ 4.8 (210)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_3',
     'name': 'Broccoli',
     'image': 'assets/broccoli.png',
     'rating': '⭐ 4.9 (190)',
@@ -42,6 +45,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_4',
     'name': 'Spinach',
     'image': 'assets/spinach.png',
     'rating': '⭐ 4.6 (120)',
@@ -56,6 +60,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_5',
     'name': 'Cucumber',
     'image': 'assets/cucumber.png',
     'rating': '⭐ 4.7 (140)',
@@ -70,6 +75,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_6',
     'name': 'Potato',
     'image': 'assets/potato.png',
     'rating': '⭐ 4.5 (180)',
@@ -84,6 +90,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_7',
     'name': 'Onion',
     'image': 'assets/onion.png',
     'rating': '⭐ 4.8 (230)',
@@ -98,6 +105,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_8',
     'name': 'Bell Pepper',
     'image': 'assets/bell_pepper.png',
     'rating': '⭐ 4.9 (220)',
@@ -112,6 +120,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_9',
     'name': 'Cauliflower',
     'image': 'assets/cauliflower.png',
     'rating': '⭐ 4.7 (170)',
@@ -126,6 +135,7 @@ List<Map<String, dynamic>> allVegetables = [
     },
   },
   {
+    'id': 'vegetable_10',
     'name': 'Mushroom',
     'image': 'assets/mushroom.png',
     'rating': '⭐ 4.8 (190)',
@@ -137,62 +147,6 @@ List<Map<String, dynamic>> allVegetables = [
       'Carbs': '3.3g',
       'Protein': '3.1g',
       'Fat': '0.3g',
-    },
-  },
-  {
-    'name': 'Peas',
-    'image': 'assets/peas.png',
-    'rating': '⭐ 4.9 (210)',
-    'price': 'Rs.60',
-    'description':
-        'Sweet and tender, our organic peas are perfect for soups, salads, or side dishes. Packed with plant-based protein!',
-    'nutrition': {
-      'Calories': '81 kcal',
-      'Carbs': '14g',
-      'Protein': '5.4g',
-      'Fat': '0.4g',
-    },
-  },
-  {
-    'name': 'Eggplant',
-    'image': 'assets/eggplant.png',
-    'rating': '⭐ 4.5 (140)',
-    'price': 'Rs.35',
-    'description':
-        'Rich and flavorful, our organic eggplants are perfect for grilling, roasting, or adding to curries.',
-    'nutrition': {
-      'Calories': '25 kcal',
-      'Carbs': '5.9g',
-      'Protein': '0.9g',
-      'Fat': '0.2g',
-    },
-  },
-  {
-    'name': 'Chili',
-    'image': 'assets/chili.png',
-    'rating': '⭐ 4.8 (180)',
-    'price': 'Rs.25',
-    'description':
-        'Add a spicy kick to your dishes with our organic chilies. Perfect for curries, marinades, and sauces.',
-    'nutrition': {
-      'Calories': '40 kcal',
-      'Carbs': '9g',
-      'Protein': '1.9g',
-      'Fat': '0.4g',
-    },
-  },
-  {
-    'name': 'Pumpkin',
-    'image': 'assets/pumpkin.png',
-    'rating': '⭐ 4.7 (190)',
-    'price': 'Rs.50',
-    'description':
-        'Sweet and nutrient-rich, our organic pumpkins are perfect for soups, pies, or roasting. High in vitamin A and antioxidants!',
-    'nutrition': {
-      'Calories': '26 kcal',
-      'Carbs': '6.5g',
-      'Protein': '1g',
-      'Fat': '0.1g',
     },
   },
 ];

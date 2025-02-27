@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> bakingSupplies = [
   {
+    'id': 'baking_1',
     'name': 'All-Purpose Flour',
     'image': 'assets/all_purpose_flour.png',
     'rating': '⭐ 4.8 (450)',
@@ -14,10 +15,11 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_2',
     'name': 'Baking Powder',
     'image': 'assets/baking_powder.png',
     'rating': '⭐ 4.9 (300)',
-    'price': 'Rs.60/100g',
+    'price': 'Rs.60',
     'description': 'Organic baking powder for light and fluffy baked goods.',
     'nutrition': {
       'Calories': '53 kcal',
@@ -27,10 +29,11 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_3',
     'name': 'Baking Soda',
     'image': 'assets/baking_soda.png',
     'rating': '⭐ 4.8 (270)',
-    'price': 'Rs.40/100g',
+    'price': 'Rs.40',
     'description': 'Pure organic baking soda for perfect texture and rise.',
     'nutrition': {
       'Calories': '0 kcal',
@@ -40,10 +43,11 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_4',
     'name': 'Cocoa Powder',
     'image': 'assets/cocoa_powder.png',
     'rating': '⭐ 4.9 (380)',
-    'price': 'Rs.250/250g',
+    'price': 'Rs.250',
     'description':
         'Rich organic cocoa powder, ideal for brownies and chocolate cakes.',
     'nutrition': {
@@ -54,10 +58,11 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_5',
     'name': 'Vanilla Extract',
     'image': 'assets/vanilla_extract.png',
     'rating': '⭐ 4.8 (340)',
-    'price': 'Rs.300/50ml',
+    'price': 'Rs.300',
     'description':
         'Pure organic vanilla extract for rich and authentic flavor.',
     'nutrition': {
@@ -68,6 +73,7 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_6',
     'name': 'Brown Sugar',
     'image': 'assets/brown_sugar.png',
     'rating': '⭐ 4.7 (400)',
@@ -82,10 +88,11 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_7',
     'name': 'Yeast',
     'image': 'assets/yeast.png',
     'rating': '⭐ 4.8 (310)',
-    'price': 'Rs.150/100g',
+    'price': 'Rs.150',
     'description': 'Active dry yeast for soft, fluffy bread and pizza dough.',
     'nutrition': {
       'Calories': '325 kcal',
@@ -95,10 +102,11 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_8',
     'name': 'Cornflour',
     'image': 'assets/cornflour.png',
     'rating': '⭐ 4.7 (290)',
-    'price': 'Rs.80/500g',
+    'price': 'Rs.80',
     'description':
         'Fine organic cornflour, ideal for thickening sauces and baking.',
     'nutrition': {
@@ -109,10 +117,11 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_9',
     'name': 'Icing Sugar',
     'image': 'assets/icing_sugar.png',
     'rating': '⭐ 4.6 (250)',
-    'price': 'Rs.90/500g',
+    'price': 'Rs.90',
     'description':
         'Fine organic icing sugar for decorating cakes and desserts.',
     'nutrition': {
@@ -123,6 +132,7 @@ List<Map<String, dynamic>> bakingSupplies = [
     },
   },
   {
+    'id': 'baking_10',
     'name': 'Butter',
     'image': 'assets/butter.png',
     'rating': '⭐ 4.9 (450)',

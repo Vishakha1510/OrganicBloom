@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> nutsAndSeeds = [
   {
+    'id': 'nut_1',
     'name': 'Almonds',
     'image': 'assets/almonds.png',
     'rating': '⭐ 4.8 (520)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_2',
     'name': 'Cashews',
     'image': 'assets/cashews.png',
     'rating': '⭐ 4.7 (430)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_3',
     'name': 'Walnuts',
     'image': 'assets/walnuts.png',
     'rating': '⭐ 4.9 (390)',
@@ -42,6 +45,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_4',
     'name': 'Pistachios',
     'image': 'assets/pistachios.png',
     'rating': '⭐ 4.8 (410)',
@@ -55,6 +59,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_5',
     'name': 'Flaxseeds',
     'image': 'assets/flaxseeds.png',
     'rating': '⭐ 4.7 (350)',
@@ -69,6 +74,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_6',
     'name': 'Chia Seeds',
     'image': 'assets/chia_seeds.png',
     'rating': '⭐ 4.9 (480)',
@@ -83,6 +89,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_7',
     'name': 'Pumpkin Seeds',
     'image': 'assets/pumpkin_seeds.png',
     'rating': '⭐ 4.8 (370)',
@@ -97,6 +104,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_8',
     'name': 'Sunflower Seeds',
     'image': 'assets/sunflower_seeds.png',
     'rating': '⭐ 4.7 (320)',
@@ -111,6 +119,7 @@ List<Map<String, dynamic>> nutsAndSeeds = [
     },
   },
   {
+    'id': 'nut_9',
     'name': 'Sesame Seeds',
     'image': 'assets/sesame_seeds.png',
     'rating': '⭐ 4.6 (290)',

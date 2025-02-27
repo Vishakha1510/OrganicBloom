@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Bakery_list.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/bakery_detail_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class BakeryCategoryScreen extends StatefulWidget {
   const BakeryCategoryScreen({super.key});
@@ -73,7 +75,41 @@ class _BakeryCategoryScreenState extends State<BakeryCategoryScreen> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  var cartProvider = Provider.of<CartProvider>(
+                                      context,
+                                      listen: false);
+
+                                  // Ensure fruit has an 'id', generate one if missing
+                                  String Id = bakery.containsKey('id')
+                                      ? bakery['id'].toString()
+                                      : DateTime.now()
+                                          .millisecondsSinceEpoch
+                                          .toString();
+
+                                  // Convert price safely
+                                  double price = double.tryParse(bakery['price']
+                                              .replaceAll(
+                                                  RegExp(r'[^0-9]'), ''))
+                                          ?.toDouble() ??
+                                      0.0;
+
+                                  // Add item to cart
+                                  cartProvider.addToCart(
+                                    Id,
+                                    bakery['name'].toString(),
+                                    price,
+                                    1, // Default quantity to 1 for now
+                                    bakery['image'].toString(),
+                                  );
+
+                                  // Show confirmation
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            "${bakery['name']} added to cart!")),
+                                  );
+                                },
                                 icon: const Icon(Icons.add, size: 30),
                               ),
                             ],

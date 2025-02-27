@@ -7,6 +7,8 @@ import 'package:organicbloom/Views/Screens/Category_screens/bevegares_category_s
 import 'package:organicbloom/Views/Screens/Category_screens/vegetable_category_screen.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/fruit_detail_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 int selectbottomitemindex = 0;
 
@@ -415,6 +417,36 @@ class _Home_screenState extends State<Home_screen> {
                                       IconButton(
                                         onPressed: () {
                                           _addToCart(fruit['name']);
+                                          var cartProvider =
+                                              Provider.of<CartProvider>(context,
+                                                  listen: false);
+
+                                          // Ensure fruit has an 'id', generate one if missing
+                                          String fruitId =
+                                              fruit.containsKey('id')
+                                                  ? fruit['id'].toString()
+                                                  : DateTime.now()
+                                                      .millisecondsSinceEpoch
+                                                      .toString();
+
+                                          // Convert price safely
+                                          double price = double.tryParse(
+                                                      fruit['price'].replaceAll(
+                                                          RegExp(r'[^0-9]'),
+                                                          ''))
+                                                  ?.toDouble() ??
+                                              0.0;
+
+                                          // Add item to cart
+                                          cartProvider.addToCart(
+                                            fruitId,
+                                            fruit['name'].toString(),
+                                            price,
+                                            1, // Default quantity to 1 for now
+                                            fruit['image'].toString(),
+                                          );
+
+                                          // Show confirmation
                                         },
                                         icon: Icon(
                                           Icons.add,

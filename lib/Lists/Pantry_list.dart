@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> pantryEssentials = [
   {
+    'id': 'pantry_1',
     'name': 'Basmati Rice',
     'image': 'assets/basmati_rice.png',
     'rating': '⭐ 4.8 (500)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_2',
     'name': 'Whole Wheat Flour',
     'image': 'assets/wheat_flour.png',
     'rating': '⭐ 4.9 (600)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_3',
     'name': 'Lentils (Masoor Dal)',
     'image': 'assets/lentils.png',
     'rating': '⭐ 4.7 (400)',
@@ -42,6 +45,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_4',
     'name': 'Chickpeas (Chana)',
     'image': 'assets/chickpeas.png',
     'rating': '⭐ 4.8 (450)',
@@ -56,6 +60,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_5',
     'name': 'Moong Dal',
     'image': 'assets/moong_dal.png',
     'rating': '⭐ 4.9 (470)',
@@ -69,6 +74,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_6',
     'name': 'Mustard Oil',
     'image': 'assets/mustard_oil.png',
     'rating': '⭐ 4.6 (350)',
@@ -83,6 +89,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_7',
     'name': 'Desi Ghee',
     'image': 'assets/desi_ghee.png',
     'rating': '⭐ 4.8 (500)',
@@ -96,6 +103,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_8',
     'name': 'Rock Salt',
     'image': 'assets/rock_salt.png',
     'rating': '⭐ 4.7 (280)',
@@ -110,6 +118,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_9',
     'name': 'Jaggery (Gur)',
     'image': 'assets/jaggery.png',
     'rating': '⭐ 4.9 (350)',
@@ -124,10 +133,11 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_10',
     'name': 'Honey',
     'image': 'assets/honey.png',
     'rating': '⭐ 4.8 (370)',
-    'price': 'Rs.250/500g',
+    'price': 'Rs.250',
     'description':
         'Raw organic honey, rich in antioxidants and natural sweetness.',
     'nutrition': {
@@ -138,6 +148,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_11',
     'name': 'Turmeric Powder',
     'image': 'assets/turmeric.png',
     'rating': '⭐ 4.8 (400)',
@@ -152,6 +163,7 @@ List<Map<String, dynamic>> pantryEssentials = [
     },
   },
   {
+    'id': 'pantry_12',
     'name': 'Cumin Seeds(Jeera)',
     'image': 'assets/cumin.png',
     'rating': '⭐ 4.7 (350)',

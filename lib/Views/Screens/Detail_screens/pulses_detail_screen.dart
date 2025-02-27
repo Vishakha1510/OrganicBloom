@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:organicbloom/helpers/providers/favourite_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -294,7 +295,28 @@ class _PulsesDetailScreenState extends State<PulsesDetailScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('cart');
+                    var cartProvider =
+                        Provider.of<CartProvider>(context, listen: false);
+
+                    // Convert price
+                    double price = double.tryParse(widget.pulse['price']
+                                .replaceAll(RegExp(r'[^0-9]'), ''))
+                            ?.toDouble() ??
+                        0.0;
+
+                    cartProvider.addToCart(
+                      widget.pulse['id'].toString(),
+                      widget.pulse['name'].toString(),
+                      price,
+                      quantity,
+                      widget.pulse['image'].toString(),
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                          content:
+                              Text("${widget.pulse['name']} added to cart!")),
+                    );
                   },
                   child: Container(
                     width: double.infinity,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:organicbloom/helpers/providers/favourite_provider.dart';
 
@@ -236,7 +237,28 @@ class _FruitDetailScreenState extends State<FruitDetailScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('cart');
+                    var cartProvider =
+                        Provider.of<CartProvider>(context, listen: false);
+
+                    // Convert price
+                    double price = double.tryParse(widget.fruit['price']
+                                .replaceAll(RegExp(r'[^0-9]'), ''))
+                            ?.toDouble() ??
+                        0.0;
+
+                    cartProvider.addToCart(
+                      widget.fruit['id'].toString(),
+                      widget.fruit['name'].toString(),
+                      price,
+                      quantity,
+                      widget.fruit['image'].toString(),
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                          content:
+                              Text("${widget.fruit['name']} added to cart!")),
+                    );
                   },
                   child: Container(
                     width: double.infinity,

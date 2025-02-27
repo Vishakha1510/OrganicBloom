@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Lists/Pulses_list.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/pulses_detail_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class PulsesCategoryScreen extends StatefulWidget {
   const PulsesCategoryScreen({super.key});
@@ -72,7 +74,41 @@ class _PulsesCategoryScreenState extends State<PulsesCategoryScreen> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  var cartProvider = Provider.of<CartProvider>(
+                                      context,
+                                      listen: false);
+
+                                  // Ensure fruit has an 'id', generate one if missing
+                                  String Id = pulse.containsKey('id')
+                                      ? pulse['id'].toString()
+                                      : DateTime.now()
+                                          .millisecondsSinceEpoch
+                                          .toString();
+
+                                  // Convert price safely
+                                  double price = double.tryParse(pulse['price']
+                                              .replaceAll(
+                                                  RegExp(r'[^0-9]'), ''))
+                                          ?.toDouble() ??
+                                      0.0;
+
+                                  // Add item to cart
+                                  cartProvider.addToCart(
+                                    Id,
+                                    pulse['name'].toString(),
+                                    price,
+                                    1, // Default quantity to 1 for now
+                                    pulse['image'].toString(),
+                                  );
+
+                                  // Show confirmation
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            "${pulse['name']} added to cart!")),
+                                  );
+                                },
                                 icon: const Icon(Icons.add, size: 30),
                               ),
                             ],

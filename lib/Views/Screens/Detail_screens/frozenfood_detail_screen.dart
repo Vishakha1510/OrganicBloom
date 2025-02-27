@@ -1,5 +1,6 @@
 // This Flutter screen displays the details of frozen vegetable food items.
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:organicbloom/helpers/providers/favourite_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -239,7 +240,28 @@ class _FrozenVegFoodDetailScreenState extends State<FrozenVegFoodDetailScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('cart');
+                    var cartProvider =
+                        Provider.of<CartProvider>(context, listen: false);
+
+                    // Convert price
+                    double price = double.tryParse(widget.foodItem['price']
+                                .replaceAll(RegExp(r'[^0-9]'), ''))
+                            ?.toDouble() ??
+                        0.0;
+
+                    cartProvider.addToCart(
+                      widget.foodItem['id'].toString(),
+                      widget.foodItem['name'].toString(),
+                      price,
+                      quantity,
+                      widget.foodItem['image'].toString(),
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                          content: Text(
+                              "${widget.foodItem['name']} added to cart!")),
+                    );
                   },
                   child: Container(
                     width: double.infinity,

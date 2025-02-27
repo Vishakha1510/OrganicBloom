@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> Spices = [
   {
+    'id': 'spice_1',
     'name': 'Turmeric',
     'image': 'assets/turmeric.png',
     'rating': '⭐ 4.9 (500)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_2',
     'name': 'Cumin Seeds',
     'image': 'assets/cumin.png',
     'rating': '⭐ 4.8 (450)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_3',
     'name': 'Coriander Powder',
     'image': 'assets/coriander.png',
     'rating': '⭐ 4.7 (400)',
@@ -41,6 +44,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_4',
     'name': 'Red Chilli Powder',
     'image': 'assets/redchilli.png',
     'rating': '⭐ 4.8 (480)',
@@ -55,6 +59,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_5',
     'name': 'Garam Masala',
     'image': 'assets/garammasala.png',
     'rating': '⭐ 4.9 (520)',
@@ -69,6 +74,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_6',
     'name': 'Black Pepper',
     'image': 'assets/blackpepper.png',
     'rating': '⭐ 4.8 (410)',
@@ -82,6 +88,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_7',
     'name': 'Cardamom',
     'image': 'assets/cardamom.png',
     'rating': '⭐ 4.9 (390)',
@@ -95,6 +102,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_8',
     'name': 'Cloves',
     'image': 'assets/cloves.png',
     'rating': '⭐ 4.8 (360)',
@@ -108,6 +116,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_9',
     'name': 'Cinnamon',
     'image': 'assets/cinnamon.png',
     'rating': '⭐ 4.7 (400)',
@@ -121,6 +130,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_10',
     'name': 'Fenugreek Seeds',
     'image': 'assets/fenugreek.png',
     'rating': '⭐ 4.6 (300)',
@@ -135,6 +145,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_11',
     'name': 'Mustard Seeds',
     'image': 'assets/mustard.png',
     'rating': '⭐ 4.7 (320)',
@@ -149,6 +160,7 @@ List<Map<String, dynamic>> Spices = [
     },
   },
   {
+    'id': 'spice_12',
     'name': 'Bay Leaves',
     'image': 'assets/bayleaves.png',
     'rating': '⭐ 4.6 (290)',

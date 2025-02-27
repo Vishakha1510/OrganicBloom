@@ -8,6 +8,7 @@ import 'package:organicbloom/Views/Screens/Menu_screen.dart';
 import 'package:organicbloom/Views/Screens/Profile_screen.dart';
 import 'package:organicbloom/Views/Screens/Search_screen.dart';
 import 'package:organicbloom/Views/Screens/Signup_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:organicbloom/helpers/providers/favourite_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +25,9 @@ class OrganicBloom extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => FavoritesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProvider(),
         )
       ],
       builder: (context, _) {
@@ -38,7 +42,7 @@ class OrganicBloom extends StatelessWidget {
             'search': (context) => Search_screen(),
             'profile': (context) => Profile_screen(),
             'menu': (context) => Menu_screen(),
-            'cart': (context) => Cart_screen(),
+            'cart': (context) => CartScreen(),
           },
         );
       },

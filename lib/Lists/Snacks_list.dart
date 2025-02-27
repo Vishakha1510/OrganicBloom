@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> snacks = [
   {
+    'id': 'snack_1',
     'name': 'Nachos',
     'image': 'assets/nachos.png',
     'price': 'Rs.150',
@@ -13,6 +14,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_2',
     'name': 'Rolls',
     'image': 'assets/spring_rolls.png',
     'price': 'Rs.120',
@@ -27,6 +29,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_3',
     'name': 'Fries',
     'image': 'assets/french_fries.png',
     'price': 'Rs.100',
@@ -41,6 +44,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_4',
     'name': 'Sandwich',
     'image': 'assets/sandwich.png',
     'price': 'Rs.140',
@@ -54,6 +58,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_5',
     'name': 'Burger',
     'image': 'assets/burger.png',
     'price': 'Rs.180',
@@ -67,6 +72,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_6',
     'name': 'Tacos',
     'image': 'assets/tacos.png',
     'price': 'Rs.160',
@@ -80,6 +86,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_7',
     'name': 'Pasta',
     'image': 'assets/pasta.png',
     'price': 'Rs.200',
@@ -93,6 +100,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_8',
     'name': 'Popcorn',
     'image': 'assets/popcorn.png',
     'price': 'Rs.80',
@@ -106,6 +114,7 @@ List<Map<String, dynamic>> snacks = [
     },
   },
   {
+    'id': 'snack_9',
     'name': 'Chips',
     'image': 'assets/chips.png',
     'price': 'Rs.50',

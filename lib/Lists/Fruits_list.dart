@@ -1,11 +1,11 @@
 List<Map<String, dynamic>> allfruits = [
   {
+    'id': '1',
     'name': 'Banana',
     'image': 'assets/banana.png',
     'rating': '⭐ 4.8 (287)',
     'price': 'Rs.58',
-    'description':
-        'Rich in flavor and nutrients, these bananas are 100% organic and sustainably grown. Enjoy the wholesome goodness in every bite!',
+    'description': 'Rich in flavor and nutrients...',
     'nutrition': {
       'Calories': '89 kcal',
       'Carbs': '23g',
@@ -14,12 +14,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '2',
     'name': 'Apples',
     'image': 'assets/apple.png',
     'rating': '⭐ 4.8 (287)',
     'price': 'Rs.100',
-    'description':
-        'Fresh from sustainable orchards, our organic apples offer a healthy, pesticide-free treat. A perfect balance of flavor and nutrition!',
+    'description': 'Fresh from sustainable orchards...',
     'nutrition': {
       'Calories': '52 kcal',
       'Carbs': '14g',
@@ -28,12 +28,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '3',
     'name': 'Oranges',
     'image': 'assets/orange.png',
     'rating': '⭐ 4.8 (287)',
     'price': 'Rs.110',
-    'description':
-        'Sweet, tangy, and 100% organic, these oranges are packed with vitamin C and natural goodness. A healthy boost for your day!',
+    'description': 'Sweet, tangy, and 100% organic...',
     'nutrition': {
       'Calories': '47 kcal',
       'Carbs': '12g',
@@ -42,12 +42,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '4',
     'name': 'Mango',
     'image': 'assets/mango.png',
     'rating': '⭐ 4.9 (520)',
     'price': 'Rs.150',
-    'description':
-        'Juicy, sweet, and irresistibly delicious, our organic mangoes are the perfect tropical treat. Packed with vitamins and flavor!',
+    'description': 'Juicy, sweet, and irresistibly delicious...',
     'nutrition': {
       'Calories': '60 kcal',
       'Carbs': '15g',
@@ -56,12 +56,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '5',
     'name': 'Strawberries',
     'image': 'assets/strawberry.png',
     'rating': '⭐ 4.8 (410)',
     'price': 'Rs.200',
-    'description':
-        'Bright, sweet, and bursting with flavor, these organic strawberries are nature’s candy. Perfect for snacking or desserts!',
+    'description': 'Bright, sweet, and bursting with flavor...',
     'nutrition': {
       'Calories': '32 kcal',
       'Carbs': '8g',
@@ -70,12 +70,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '6',
     'name': 'Watermelon',
     'image': 'assets/watermelon.png',
     'rating': '⭐ 4.7 (350)',
     'price': 'Rs.40/kg',
-    'description':
-        'Refreshing and hydrating, our organic watermelons are a summertime favorite. Sweet and full of natural goodness!',
+    'description': 'Refreshing and hydrating...',
     'nutrition': {
       'Calories': '30 kcal',
       'Carbs': '8g',
@@ -84,12 +84,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '7',
     'name': 'Pineapple',
     'image': 'assets/pineapple.png',
     'rating': '⭐ 4.6 (295)',
     'price': 'Rs.90',
-    'description':
-        'Tropical, tangy, and full of flavor, our organic pineapples are a zesty delight. Great for snacking or recipes!',
+    'description': 'Tropical, tangy, and full of flavor...',
     'nutrition': {
       'Calories': '50 kcal',
       'Carbs': '13g',
@@ -98,12 +98,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '8',
     'name': 'Blueberries',
     'image': 'assets/blueberries.png',
     'rating': '⭐ 4.9 (180)',
     'price': 'Rs.250',
-    'description':
-        'Small but mighty, these organic blueberries are packed with antioxidants and a burst of natural sweetness!',
+    'description': 'Small but mighty, packed with antioxidants...',
     'nutrition': {
       'Calories': '57 kcal',
       'Carbs': '14g',
@@ -112,12 +112,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '9',
     'name': 'Papaya',
     'image': 'assets/papaya.png',
     'rating': '⭐ 4.7 (320)',
     'price': 'Rs.80',
-    'description':
-        'Naturally sweet and rich in vitamins, our organic papayas are the perfect addition to a healthy diet!',
+    'description': 'Naturally sweet and rich in vitamins...',
     'nutrition': {
       'Calories': '43 kcal',
       'Carbs': '11g',
@@ -126,12 +126,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '10',
     'name': 'Grapes',
     'image': 'assets/grapes.png',
     'rating': '⭐ 4.8 (400)',
     'price': 'Rs.120',
-    'description':
-        'Juicy and full of flavor, our organic grapes are a perfect snack or addition to salads and desserts!',
+    'description': 'Juicy and full of flavor...',
     'nutrition': {
       'Calories': '69 kcal',
       'Carbs': '18g',
@@ -140,12 +140,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '11',
     'name': 'Kiwi',
     'image': 'assets/kiwi.png',
     'rating': '⭐ 4.7 (230)',
     'price': 'Rs.150',
-    'description':
-        'Tangy, sweet, and rich in nutrients, our organic kiwis are a deliciously unique treat. Great for smoothies and snacks!',
+    'description': 'Tangy, sweet, and rich in nutrients...',
     'nutrition': {
       'Calories': '61 kcal',
       'Carbs': '15g',
@@ -154,12 +154,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '12',
     'name': 'Pomegranate',
     'image': 'assets/pomegranate.png',
     'rating': '⭐ 4.8 (310)',
     'price': 'Rs.180',
-    'description':
-        'Rich in antioxidants and bursting with flavor, our organic pomegranates are a superfood favorite!',
+    'description': 'Rich in antioxidants...',
     'nutrition': {
       'Calories': '83 kcal',
       'Carbs': '19g',
@@ -168,12 +168,12 @@ List<Map<String, dynamic>> allfruits = [
     },
   },
   {
+    'id': '13',
     'name': 'Avocado',
     'image': 'assets/avocado.png',
     'rating': '⭐ 4.9 (190)',
     'price': 'Rs.300',
-    'description':
-        'Creamy, nutritious, and versatile, our organic avocados are a healthy addition to any meal. Perfect for guacamole or toast!',
+    'description': 'Creamy, nutritious, and versatile...',
     'nutrition': {
       'Calories': '160 kcal',
       'Carbs': '9g',

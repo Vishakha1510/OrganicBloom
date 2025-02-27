@@ -1,5 +1,6 @@
 List<Map<String, dynamic>> Grains = [
   {
+    'id': 'grain_1',
     'name': 'Wheat (Gehu)',
     'image': 'assets/wheat.png',
     'rating': '⭐ 4.9 (520)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_2',
     'name': 'Rice (Chawal)',
     'image': 'assets/rice.png',
     'rating': '⭐ 4.8 (480)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_3',
     'name': 'Quinoa',
     'image': 'assets/quinoa.png',
     'rating': '⭐ 4.7 (310)',
@@ -42,6 +45,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_4',
     'name': 'Barley (Jau)',
     'image': 'assets/barley.png',
     'rating': '⭐ 4.6 (270)',
@@ -56,6 +60,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_5',
     'name': 'Millet (Bajra)',
     'image': 'assets/millet.png',
     'rating': '⭐ 4.7 (290)',
@@ -70,6 +75,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_6',
     'name': 'Finger Millet (Ragi)',
     'image': 'assets/ragi.png',
     'rating': '⭐ 4.8 (330)',
@@ -84,6 +90,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_7',
     'name': 'Sorghum (Jowar)',
     'image': 'assets/jowar.png',
     'rating': '⭐ 4.6 (250)',
@@ -98,6 +105,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_8',
     'name': 'Amaranth (Rajgira)',
     'image': 'assets/amaranth.png',
     'rating': '⭐ 4.7 (210)',
@@ -112,6 +120,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_9',
     'name': 'Corn (Makka)',
     'image': 'assets/corn.png',
     'rating': '⭐ 4.8 (300)',
@@ -126,6 +135,7 @@ List<Map<String, dynamic>> Grains = [
     },
   },
   {
+    'id': 'grain_10',
     'name': 'Buckwheat (Kuttu)',
     'image': 'assets/buckwheat.png',
     'rating': '⭐ 4.7 (220)',

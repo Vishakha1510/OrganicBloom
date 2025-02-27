@@ -1,5 +1,6 @@
-List<Map<String, dynamic>> Condiments = [
+List<Map<String, dynamic>> condiments = [
   {
+    'id': 'condiment_1',
     'name': 'Tomato Ketchup',
     'image': 'assets/ketchup.png',
     'rating': '⭐ 4.8 (450)',
@@ -14,6 +15,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_2',
     'name': 'Green Chutney',
     'image': 'assets/greenchutney.png',
     'rating': '⭐ 4.7 (390)',
@@ -28,6 +30,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_3',
     'name': 'Tamarind Chutney',
     'image': 'assets/tamarindchutney.png',
     'rating': '⭐ 4.6 (370)',
@@ -42,6 +45,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_4',
     'name': 'Mustard Sauce',
     'image': 'assets/mustardsause.png',
     'rating': '⭐ 4.7 (340)',
@@ -55,6 +59,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_5',
     'name': 'Mayonnaise',
     'image': 'assets/mayonnaise.png',
     'rating': '⭐ 4.8 (420)',
@@ -69,6 +74,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_6',
     'name': 'Soy Sauce',
     'image': 'assets/soysause.png',
     'rating': '⭐ 4.7 (310)',
@@ -83,6 +89,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_7',
     'name': 'Vinegar',
     'image': 'assets/vinegar.png',
     'rating': '⭐ 4.6 (280)',
@@ -97,6 +104,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_8',
     'name': 'Hot Sauce',
     'image': 'assets/hotsause.png',
     'rating': '⭐ 4.7 (350)',
@@ -110,6 +118,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_9',
     'name': 'Pickle (Achar)',
     'image': 'assets/pickel.png',
     'rating': '⭐ 4.8 (400)',
@@ -124,6 +133,7 @@ List<Map<String, dynamic>> Condiments = [
     },
   },
   {
+    'id': 'condiment_10',
     'name': 'Honey',
     'image': 'assets/honey.png',
     'rating': '⭐ 4.9 (480)',
