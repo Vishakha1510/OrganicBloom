@@ -12,7 +12,7 @@ class _ChatWithusScreenState extends State<ChatWithusScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade200,
+        backgroundColor: Color(0xFFA5CC65),
         foregroundColor: Colors.white,
         centerTitle: true,
         title: Text(

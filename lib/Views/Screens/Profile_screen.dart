@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Chat_withus_screen.dart';
 import 'package:organicbloom/Views/Screens/Edit_profile_screen.dart';
-import 'package:organicbloom/Views/Screens/Home_screen.dart';
+
 import 'package:organicbloom/Views/Screens/Intro_screen.dart';
 import 'package:organicbloom/Views/Screens/Mail_to_us_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Orders_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Wishlist_screen.dart';
 import 'package:organicbloom/Views/Screens/Talk_to_our_support_screen.dart';
+import 'package:organicbloom/helpers/providers/user_provider.dart';
+import 'package:provider/provider.dart';
 
 class Profile_screen extends StatefulWidget {
   const Profile_screen({super.key});
@@ -17,14 +19,19 @@ class Profile_screen extends StatefulWidget {
 }
 
 class _Profile_screenState extends State<Profile_screen> {
+  UserProvider? userProvider;
+
   @override
   Widget build(BuildContext context) {
+    userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        backgroundColor: Color(0xFFA5CC65),
+        foregroundColor: Colors.white,
         title: Text(
           "More",
-          style: TextStyle(fontSize: 25, color: Color(0xFF1E1E1E)),
+          style: TextStyle(fontSize: 25),
         ),
       ),
       body: SingleChildScrollView(
@@ -39,12 +46,12 @@ class _Profile_screenState extends State<Profile_screen> {
                 SizedBox(width: 5),
                 CircleAvatar(
                   radius: 40,
-                  backgroundImage: NetworkImage(
-                      "https://images.freeimages.com/images/large-previews/8f6/rainbow-of-god-1190463.jpg?fmt=webp&w=500"),
+                  child: Icon(
+                    Icons.person,
+                    size: 50,
+                  ),
                 ),
-                Column(
-                  children: [Text("Username"), Text(" Contact no.")],
-                )
+                Text(userProvider?.user?.data()["email"])
               ],
             ),
             SizedBox(height: 20),
@@ -124,7 +131,7 @@ class _Profile_screenState extends State<Profile_screen> {
             Divider(),
             ListTile(
                 onTap: () {
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => Intro_screen()));
                 },
                 leading: Icon(
@@ -134,53 +141,6 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("Log out")),
           ],
         ),
-      ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: selectbottomitemindex,
-        onDestinationSelected: (val) {
-          setState(() {
-            selectbottomitemindex = val;
-            switch (selectbottomitemindex) {
-              case 0:
-                Navigator.of(context).pushNamed('/');
-                break;
-              case 1:
-                Navigator.of(context).pushNamed('favourite');
-                break;
-              case 2:
-                Navigator.of(context).pushNamed('search');
-                break;
-              case 3:
-                Navigator.of(context).pushNamed('profile');
-                break;
-              case 4:
-                Navigator.of(context).pushNamed('menu');
-                break;
-            }
-          });
-        },
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.favorite_outline),
-            label: 'Favourite',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person_pin),
-            label: 'Profile',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.menu),
-            label: 'Menu',
-          ),
-        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:organicbloom/Views/Screens/Login_screen.dart';
+import 'package:organicbloom/Views/Screens/mainnavigation.dart';
 
 class Signup_screen extends StatefulWidget {
   const Signup_screen({super.key});
@@ -9,6 +10,13 @@ class Signup_screen extends StatefulWidget {
 }
 
 class _Signup_screenState extends State<Signup_screen> {
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController confirmpasswordcontroller = TextEditingController();
+
+  bool ispasswordvisible = false;
+  bool isconfirmpasswordvisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +24,7 @@ class _Signup_screenState extends State<Signup_screen> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,13 +46,7 @@ class _Signup_screenState extends State<Signup_screen> {
                 ),
                 SizedBox(height: 24),
                 TextField(
-                  decoration: InputDecoration(
-                    labelText: "Username",
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(height: 16),
-                TextField(
+                  controller: emailcontroller,
                   decoration: InputDecoration(
                     labelText: "Email",
                     border: OutlineInputBorder(),
@@ -52,12 +54,38 @@ class _Signup_screenState extends State<Signup_screen> {
                 ),
                 SizedBox(height: 16),
                 TextField(
-                  obscureText: true, // Hides the text for passwords
+                  controller: passwordcontroller,
+                  obscureText: !ispasswordvisible,
                   decoration: InputDecoration(
-                    labelText: "Password",
-                    border: OutlineInputBorder(),
-                    suffixIcon: Icon(Icons.visibility_off),
-                  ),
+                      labelText: "Password",
+                      border: OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              ispasswordvisible = !ispasswordvisible;
+                            });
+                          },
+                          icon: ispasswordvisible
+                              ? Icon(Icons.visibility)
+                              : Icon(Icons.visibility_off))),
+                ),
+                SizedBox(height: 16),
+                TextField(
+                  controller: confirmpasswordcontroller,
+                  obscureText: !isconfirmpasswordvisible,
+                  decoration: InputDecoration(
+                      labelText: "Confirm Password",
+                      border: OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isconfirmpasswordvisible =
+                                  !isconfirmpasswordvisible;
+                            });
+                          },
+                          icon: isconfirmpasswordvisible
+                              ? Icon(Icons.visibility)
+                              : Icon(Icons.visibility_off))),
                 ),
                 SizedBox(height: 16),
                 Text.rich(
@@ -99,7 +127,7 @@ class _Signup_screenState extends State<Signup_screen> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('home');
+                      createuser();
                     },
                     child: Text(
                       "SIGN UP",
@@ -112,28 +140,30 @@ class _Signup_screenState extends State<Signup_screen> {
                   ),
                 ),
                 SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF1E1E1E),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Center(
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Already have an account? ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E1E1E),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Login",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFA5CC65),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Login_screen(),
-                        ));
-                      },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(color: Color(0xFFA5CC65)),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
@@ -141,5 +171,38 @@ class _Signup_screenState extends State<Signup_screen> {
         ),
       ),
     );
+  }
+
+  void createuser() async {
+    CollectionReference userCollection =
+        FirebaseFirestore.instance.collection('users');
+
+    QuerySnapshot querySnapshot = await userCollection
+        .where('email', isEqualTo: emailcontroller.text)
+        .get();
+
+    if (passwordcontroller.text != confirmpasswordcontroller.text) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Incorrect Password")));
+    }
+
+    if (querySnapshot.docs.isNotEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Email already in use")));
+    }
+
+    if (passwordcontroller.text == confirmpasswordcontroller.text &&
+        querySnapshot.docs.isEmpty) {
+      await userCollection.add({
+        "email": emailcontroller.text,
+        "password": passwordcontroller.text,
+      });
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Signup Successfull!!!")));
+
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => MainNavigationScreen(),
+      ));
+    }
   }
 }

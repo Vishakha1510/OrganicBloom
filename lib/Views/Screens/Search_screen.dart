@@ -1,96 +1,224 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:organicbloom/Views/Screens/Home_screen.dart';
 
-class Search_screen extends StatefulWidget {
-  const Search_screen({super.key});
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
 
   @override
-  State<Search_screen> createState() => _Search_screenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _Search_screenState extends State<Search_screen> {
+class _SearchScreenState extends State<SearchScreen> {
+  TextEditingController searchController = TextEditingController();
+
+  bool isLoading = true;
+  final String docId = "7zbZ5GSG9wZfbwsXnpPq";
+
+  List _allresults = [];
+  List _resultList = [];
+
+  @override
+  void initState() {
+    searchController.addListener(onSearchChanged);
+    super.initState();
+  }
+
+  onSearchChanged() {
+    // print(searchController.text);
+    searchResultList();
+  }
+
+  searchResultList() {
+    var showResults = [];
+    if (searchController.text != "") {
+      for (var clientSnapShot in _allresults) {
+        var name = clientSnapShot['name'].toString().toLowerCase();
+        if (name.contains(searchController.text.toLowerCase())) {
+          showResults.add(clientSnapShot);
+        }
+      }
+    } else {
+      showResults = List.from(_allresults);
+    }
+    setState(() {
+      _resultList = showResults;
+    });
+  }
+
+  getClientStream() async {
+    try {
+      var data = await FirebaseFirestore.instance
+          .collection("categories")
+          .doc(docId)
+          .collection("Items")
+          .orderBy("name")
+          .get();
+      setState(() {
+        _allresults = data.docs;
+        isLoading = false;
+      });
+      searchResultList();
+    } catch (e) {
+      print("Error fetching data: $e");
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    searchController.removeListener(onSearchChanged);
+    searchController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    getClientStream();
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Search",
-          style: TextStyle(fontSize: 25, color: Color(0xFF1E1E1E)),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('cart');
-              },
-              icon: Icon(
-                Icons.shopping_bag_rounded,
-                color: Color(0xFF1E1E1E),
-              ))
-        ],
+    return Scaffold(appBar: _appBar(), body: _buildbody());
+  }
+
+  AppBar _appBar() {
+    return AppBar(
+      foregroundColor: Colors.white,
+      backgroundColor: const Color(0xFFA5CC65),
+      centerTitle: true,
+      title: Text(
+        "Search",
+        style: TextStyle(fontSize: 25),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.search),
-                  labelText: "Search",
-                  labelStyle: TextStyle(color: Color(0xFFA5CC65))),
+      actions: [
+        IconButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed('cart');
+          },
+          icon: Icon(Icons.shopping_bag_rounded),
+        )
+      ],
+    );
+  }
+
+  Widget _buildbody() {
+    return Column(
+      spacing: 10,
+      children: [
+        SizedBox(height: 5),
+        Padding(
+          padding: EdgeInsets.all(20.0),
+          child: TextField(
+            controller: searchController,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              prefixIcon: Icon(Icons.search),
+              suffixIcon: IconButton(
+                  onPressed: () {
+                    searchController.clear();
+                  },
+                  icon: Icon(Icons.clear)),
+              labelText: "Search Fruits",
+              labelStyle: TextStyle(color: Color(0xFFA5CC65)),
             ),
           ),
-        ],
-      ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: selectbottomitemindex,
-        onDestinationSelected: (val) {
-          setState(() {
-            selectbottomitemindex = val;
-            switch (selectbottomitemindex) {
-              case 0:
-                Navigator.of(context).pushNamed('/');
-                break;
-              case 1:
-                Navigator.of(context).pushNamed('favourite');
-                break;
-              case 2:
-                Navigator.of(context).pushNamed('search');
-                break;
-              case 3:
-                Navigator.of(context).pushNamed('profile');
-                break;
-              case 4:
-                Navigator.of(context).pushNamed('menu');
-                break;
-            }
-          });
-        },
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.favorite_outline),
-            label: 'Favourite',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person_pin),
-            label: 'Profile',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.menu),
-            label: 'Menu',
-          ),
-        ],
-      ),
+        ),
+        isLoading
+            ? Center(child: CircularProgressIndicator())
+            : _allresults.isEmpty
+                ? Center(child: Text("No items found."))
+                : Expanded(
+                    child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 3 / 4,
+                    ),
+                    itemCount: _resultList.length,
+                    itemBuilder: (context, i) {
+                      return GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //  Image
+                              ClipRRect(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(10),
+                                ),
+                                child: Image.network(
+                                  _resultList[i]['image'],
+                                  height: 120,
+                                  width: 200,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    //  Name
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            _resultList[i]['name'],
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black87,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(Icons.add, size: 30),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 5),
+                                    // Rating
+                                    Text(
+                                      "⭐ ${_resultList[i]['rating']}",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    // Price
+                                    Text(
+                                      "Price: ${_resultList[i]['price']} Rs",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  )),
+      ],
     );
   }
 }
