@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/Detail_screen.dart';
 
+// ignore: must_be_immutable
 class CategoryDetailScreen extends StatefulWidget {
   CategoryDetailScreen({this.id, super.key});
 
@@ -55,8 +56,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
           ),
           itemCount: list?.size ?? 0,
           itemBuilder: (context, index) {
-            final fruit = list?.docs[index]?.data();
-            String? id = list?.docs[index]?.id;
+            final fruit = list?.docs[index].data();
+            String? id = list?.docs[index].id;
             return GestureDetector(
               onTap: () {
                 if (id != null) {
