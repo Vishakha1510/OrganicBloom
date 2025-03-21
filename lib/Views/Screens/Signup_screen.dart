@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/mainnavigation.dart';
+import 'package:organicbloom/helpers/providers/user_provider.dart';
+import 'package:provider/provider.dart';
 
 class Signup_screen extends StatefulWidget {
   const Signup_screen({super.key});
@@ -174,35 +176,44 @@ class _Signup_screenState extends State<Signup_screen> {
   }
 
   void createuser() async {
-    CollectionReference userCollection =
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    CollectionReference<Map<String, dynamic>> userCollection =
         FirebaseFirestore.instance.collection('users');
 
-    QuerySnapshot querySnapshot = await userCollection
+    QuerySnapshot<Map<String, dynamic>> querySnapshot = await userCollection
         .where('email', isEqualTo: emailcontroller.text)
         .get();
 
     if (passwordcontroller.text != confirmpasswordcontroller.text) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Incorrect Password")));
+          .showSnackBar(SnackBar(content: Text("Passwords do not match")));
+      return;
     }
 
     if (querySnapshot.docs.isNotEmpty) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Email already in use")));
+      return;
     }
 
-    if (passwordcontroller.text == confirmpasswordcontroller.text &&
-        querySnapshot.docs.isEmpty) {
-      await userCollection.add({
-        "email": emailcontroller.text,
-        "password": passwordcontroller.text,
-      });
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Signup Successfull!!!")));
+    await userCollection.add({
+      "email": emailcontroller.text,
+      "password": passwordcontroller.text,
+    });
 
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => MainNavigationScreen(),
-      ));
+    QuerySnapshot<Map<String, dynamic>> newUserSnapshot = await userCollection
+        .where('email', isEqualTo: emailcontroller.text)
+        .get();
+
+    if (newUserSnapshot.docs.isNotEmpty) {
+      userProvider.setUser(newUserSnapshot.docs.first);
     }
+
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text("Signup Successful!!!")));
+
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => MainNavigationScreen(),
+    ));
   }
 }
