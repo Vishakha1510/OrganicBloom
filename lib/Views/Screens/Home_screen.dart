@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Cart_screen.dart';
@@ -162,7 +164,7 @@ class _Home_screenState extends State<Home_screen> {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           height: 120,
                           width: 150,
                           child: Image.network(

@@ -46,9 +46,9 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
         title: Text(category?.data()?["name"] ?? "Category"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0),
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
@@ -79,7 +79,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                   children: [
                     //  Image
                     ClipRRect(
-                      borderRadius: const BorderRadius.vertical(
+                      borderRadius: BorderRadius.vertical(
                         top: Radius.circular(10),
                       ),
                       child: Image.network(
@@ -90,7 +90,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -101,7 +101,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                               Expanded(
                                 child: Text(
                                   fruit?['name'] ?? "",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black87,
@@ -112,24 +112,24 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                               ),
                               IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.add, size: 30),
+                                icon: Icon(Icons.add, size: 30),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 5),
+                          SizedBox(height: 5),
                           // Rating
                           Text(
                             "⭐ ${fruit?['rating'] ?? "0"}",
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 14,
                               color: Colors.black54,
                             ),
                           ),
-                          const SizedBox(height: 5),
+                          SizedBox(height: 5),
                           // Price
                           Text(
                             "Price: ${fruit?['price'] ?? "0"} Rs",
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.green,

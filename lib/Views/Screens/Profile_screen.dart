@@ -1,7 +1,8 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Chat_withus_screen.dart';
 import 'package:organicbloom/Views/Screens/Edit_profile_screen.dart';
-
 import 'package:organicbloom/Views/Screens/Intro_screen.dart';
 import 'package:organicbloom/Views/Screens/Mail_to_us_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Address_screen.dart';

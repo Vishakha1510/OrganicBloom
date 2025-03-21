@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Category_screens/category_detail.dart';
@@ -15,12 +17,12 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
     return Scaffold(
         appBar: AppBar(
           foregroundColor: Colors.white,
-          title: const Text(
+          title: Text(
             "All Categories",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
           ),
           centerTitle: true,
-          backgroundColor: const Color(0xFFA5CC65),
+          backgroundColor: Color(0xFFA5CC65),
         ),
         body: _buildgridview());
   }
@@ -34,10 +36,10 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
         }
 
         return Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: GridView.builder(
             itemCount: snapshot.data!.docs.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 15,
               crossAxisSpacing: 15,
@@ -75,10 +77,10 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                         radius: 40,
                         backgroundImage: NetworkImage(category['image']),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10),
                       Text(
                         category['name'],
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF1E1E1E),

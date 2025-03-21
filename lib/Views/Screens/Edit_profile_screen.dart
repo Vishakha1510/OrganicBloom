@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, use_build_context_synchronously, avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/helpers/providers/user_provider.dart';
@@ -51,7 +53,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   Widget _buildbody() {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: EdgeInsets.all(12.0),
       child: Column(
         spacing: 20,
         children: [

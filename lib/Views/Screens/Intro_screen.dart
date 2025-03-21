@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,7 +33,7 @@ class _Intro_screenState extends State<Intro_screen> {
           spacing: 30,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
                 height: 300,
                 child: Image(image: AssetImage('assets/logo.png'))),
             Text("ORGANIC\n          BLOOM",

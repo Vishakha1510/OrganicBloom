@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types, use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Signup_screen.dart';
@@ -150,8 +152,6 @@ class _Login_screenState extends State<Login_screen> {
         .get();
 
     if (querySnapshot.docs.isNotEmpty) {
-      print(querySnapshot.docs.first.data());
-
       UserProvider userProvider =
           Provider.of<UserProvider>(context, listen: false);
 

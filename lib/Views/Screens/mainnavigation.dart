@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Favourite_screen.dart';
 import 'package:organicbloom/Views/Screens/Home_screen.dart';
@@ -5,7 +7,7 @@ import 'package:organicbloom/Views/Screens/Search_screen.dart';
 import 'package:organicbloom/Views/Screens/Profile_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
-  const MainNavigationScreen({Key? key}) : super(key: key);
+  const MainNavigationScreen({super.key});
 
   @override
   _MainNavigationScreenState createState() => _MainNavigationScreenState();
