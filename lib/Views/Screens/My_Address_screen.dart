@@ -40,7 +40,9 @@ class _MyAddressScreenState extends State<MyAddressScreen> {
             }
             if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
               return Center(
-                child: Text("NO ADDRESSES FOUND"),
+                child: Text("NO ADDRESSES FOUND!",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               );
             }
 

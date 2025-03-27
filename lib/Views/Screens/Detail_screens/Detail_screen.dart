@@ -186,7 +186,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             fontWeight: FontWeight.bold,
                             color: Colors.green),
                       ),
-                      SizedBox(width: 100),
+                      Spacer(),
                       IconButton(
                         onPressed: () {
                           var existingItem = cartProvider.items.firstWhere(
@@ -205,9 +205,9 @@ class _DetailScreenState extends State<DetailScreen> {
                             cartProvider.removeFromCart(context, existingItem);
                           }
                         },
-                        icon: Icon(Icons.remove, size: 40, color: Colors.green),
+                        icon: Icon(Icons.remove_circle,
+                            size: 30, color: Colors.red),
                       ),
-                      SizedBox(width: 20),
                       Consumer<CartProvider>(
                         builder: (context, cart, child) {
                           var existingItem = cart.items.firstWhere(
@@ -226,7 +226,6 @@ class _DetailScreenState extends State<DetailScreen> {
                               ));
                         },
                       ),
-                      SizedBox(width: 20),
                       IconButton(
                         onPressed: () {
                           var existingItem = cartProvider.items.firstWhere(
@@ -249,8 +248,8 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                           );
                         },
-                        icon: const Icon(Icons.add,
-                            size: 35, color: Colors.green),
+                        icon: const Icon(Icons.add_circle,
+                            size: 30, color: Colors.green),
                       ),
                     ],
                   ),

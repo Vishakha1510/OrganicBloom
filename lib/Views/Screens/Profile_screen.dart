@@ -5,7 +5,7 @@ import 'package:organicbloom/Views/Screens/Edit_profile_screen.dart';
 import 'package:organicbloom/Views/Screens/Intro_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Orders_screen.dart';
-import 'package:organicbloom/Views/Screens/My_Wishlist_screen.dart';
+import 'package:organicbloom/Views/Screens/My_Favourites_screen.dart';
 import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:organicbloom/helpers/providers/user_provider.dart';
 import 'package:provider/provider.dart';

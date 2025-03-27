@@ -18,7 +18,7 @@ class _MyWishlistScreenState extends State<MyWishlistScreen> {
         foregroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "MY  WISHLIST",
+          "MY  FAVOURITES",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
       ),
