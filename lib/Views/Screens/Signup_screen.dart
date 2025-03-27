@@ -187,14 +187,25 @@ class _Signup_screenState extends State<Signup_screen> {
         .get();
 
     if (passwordcontroller.text != confirmpasswordcontroller.text) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Passwords do not match")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.red,
+          content: Center(
+              child: Text(
+            "Passwords do not match",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ))));
       return;
     }
 
     if (querySnapshot.docs.isNotEmpty) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Email already in use")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.red,
+          content: Center(
+            child: Text(
+              "Email already in use",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          )));
       return;
     }
 
@@ -211,8 +222,13 @@ class _Signup_screenState extends State<Signup_screen> {
       userProvider.setUser(newUserSnapshot.docs.first);
     }
 
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text("Signup Successful!!!")));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Color((0xFFA5CC65)),
+        content: Center(
+            child: Text(
+          "Signup Successful!!!",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ))));
 
     Navigator.of(context).pushReplacement(MaterialPageRoute(
       builder: (context) => MainNavigationScreen(),

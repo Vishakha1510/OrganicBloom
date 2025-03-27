@@ -17,7 +17,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         foregroundColor: Colors.white,
         backgroundColor: Color(0xFFA5CC65),
         centerTitle: true,
-        title: Text("Favourite", style: TextStyle(fontSize: 25)),
+        title: Text("Favourites", style: TextStyle(fontSize: 25)),
       ),
     );
   }

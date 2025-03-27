@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/Detail_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:organicbloom/model/cart_model.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class CategoryDetailScreen extends StatefulWidget {
@@ -15,6 +18,8 @@ class CategoryDetailScreen extends StatefulWidget {
 class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
   DocumentSnapshot<Map<String, dynamic>>? category;
   QuerySnapshot<Map<String, dynamic>>? list;
+
+  CartProvider? cartProvider;
 
   void getItemsData() async {
     category = await FirebaseFirestore.instance
@@ -39,6 +44,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    cartProvider = Provider.of<CartProvider>(context, listen: false);
+
     // print(category?.data() ?? "");
     return Scaffold(
       appBar: AppBar(
@@ -111,7 +118,17 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  String? itemId = list?.docs[index].id;
+                                  if (itemId != null) {
+                                    CartItem cartItem = CartItem(
+                                      id: itemId,
+                                      itemData: fruit!,
+                                      categoryId: widget.id!,
+                                    );
+                                    cartProvider?.addToCart(context, cartItem);
+                                  }
+                                },
                                 icon: Icon(Icons.add, size: 30),
                               ),
                             ],
@@ -128,7 +145,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                           SizedBox(height: 5),
                           // Price
                           Text(
-                            "Price: ${fruit?['price'] ?? "0"} Rs",
+                            "Price: Rs ${fruit?['price'] ?? "0"}",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

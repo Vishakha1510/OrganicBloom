@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/Views/Screens/Signup_screen.dart';
 import 'package:organicbloom/Views/Screens/mainnavigation.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:organicbloom/helpers/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -15,12 +16,19 @@ class Login_screen extends StatefulWidget {
 }
 
 class _Login_screenState extends State<Login_screen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  // TextEditingController emailController = TextEditingController();
+  // TextEditingController passwordController = TextEditingController();
+  TextEditingController? emailController;
+  TextEditingController? passwordController;
+
   bool ispasswordvisible = false;
+  UserProvider? userProvider;
 
   @override
   Widget build(BuildContext context) {
+    userProvider = Provider.of<UserProvider>(context);
+    emailController ??= TextEditingController(text: "ab@gmail.com");
+    passwordController ??= TextEditingController(text: "1234");
     return Scaffold(
       backgroundColor: Color(0xFFF4F4F5),
       body: Center(
@@ -147,8 +155,8 @@ class _Login_screenState extends State<Login_screen> {
         FirebaseFirestore.instance.collection('users');
 
     QuerySnapshot<Map<String, dynamic>> querySnapshot = await userCollection
-        .where('email', isEqualTo: emailController.text)
-        .where('password', isEqualTo: passwordController.text)
+        .where('email', isEqualTo: emailController?.text)
+        .where('password', isEqualTo: passwordController?.text)
         .get();
 
     if (querySnapshot.docs.isNotEmpty) {
@@ -157,14 +165,36 @@ class _Login_screenState extends State<Login_screen> {
 
       userProvider.setUser(querySnapshot.docs.first);
 
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Login successfull!!!")));
+      QuerySnapshot<Map<String, dynamic>> cartItems = await FirebaseFirestore
+          .instance
+          .collection('users')
+          .doc(querySnapshot.docs.first.id)
+          .collection("cart")
+          .get();
+
+      CartProvider cartProvider =
+          Provider.of<CartProvider>(context, listen: false);
+
+      cartProvider.addItems(cartItems);
+
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Color((0xFFA5CC65)),
+          content: Center(
+              child: Text(
+            "Login successfull !!",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ))));
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => MainNavigationScreen(),
       ));
     } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Incorrect Email or Password")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.red,
+          content: Center(
+              child: Text(
+            "Incorrect Email or Password",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ))));
     }
   }
 }

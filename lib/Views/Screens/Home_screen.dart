@@ -6,6 +6,9 @@ import 'package:organicbloom/Views/Screens/Cart_screen.dart';
 import 'package:organicbloom/Views/Screens/Category_screens/all_category_screen.dart';
 import 'package:organicbloom/Views/Screens/Category_screens/category_detail.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/Detail_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:organicbloom/model/cart_model.dart';
+import 'package:provider/provider.dart';
 
 class Home_screen extends StatefulWidget {
   const Home_screen({super.key});
@@ -17,6 +20,8 @@ class Home_screen extends StatefulWidget {
 class _Home_screenState extends State<Home_screen> {
   String? firstDocId;
   String? lastDocId;
+
+  CartProvider? cartProvider;
 
   var collection = FirebaseFirestore.instance.collection('categories');
   getdata() async {
@@ -38,27 +43,24 @@ class _Home_screenState extends State<Home_screen> {
 
   @override
   Widget build(BuildContext context) {
+    cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                SizedBox(height: 10),
-                _buildBanners(),
-                SizedBox(height: 10),
-                _buildSeeAllCategories(),
-                _buildCategoriesListView(),
-                SizedBox(height: 20),
-                _buildFirstIdScroll(),
-                SizedBox(height: 20),
-                _buildLastIdScroll()
-              ],
-            ),
-          ),
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            SizedBox(height: 10),
+            _buildBanners(),
+            SizedBox(height: 10),
+            _buildSeeAllCategories(),
+            _buildCategoriesListView(),
+            SizedBox(height: 20),
+            _buildFirstIdScroll(),
+            SizedBox(height: 20),
+            _buildLastIdScroll()
+          ],
+        ),
       ),
     );
   }
@@ -69,7 +71,7 @@ class _Home_screenState extends State<Home_screen> {
       foregroundColor: Colors.white,
       title: Text(
         "ORGANICBLOOM",
-        style: TextStyle(fontSize: 25),
+        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
       ),
       actions: [
         IconButton(
@@ -334,7 +336,13 @@ class _Home_screenState extends State<Home_screen> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                CartItem cartItem = CartItem(
+                                    id: items[index].id,
+                                    itemData: itemData,
+                                    categoryId: firstDocId!);
+                                cartProvider?.addToCart(context, cartItem);
+                              },
                               icon: Icon(Icons.add, color: Color(0xFF1E1E1E)),
                             )
                           ],
@@ -355,7 +363,7 @@ class _Home_screenState extends State<Home_screen> {
                         padding: EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 2.0),
                         child: Text(
-                          "${itemData['price']} Rs",
+                          "Rs ${itemData['price']}",
                           style: TextStyle(
                             fontSize: 17,
                             color: Colors.green,
@@ -448,7 +456,13 @@ class _Home_screenState extends State<Home_screen> {
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                CartItem cartItem = CartItem(
+                                    id: items[index].id,
+                                    itemData: itemData,
+                                    categoryId: firstDocId!);
+                                cartProvider?.addToCart(context, cartItem);
+                              },
                               icon: Icon(Icons.add, color: Color(0xFF1E1E1E)),
                             )
                           ],
@@ -469,7 +483,7 @@ class _Home_screenState extends State<Home_screen> {
                         padding: EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 2.0),
                         child: Text(
-                          "${itemData['price']} Rs",
+                          "Rs ${itemData['price']}",
                           style: TextStyle(
                             fontSize: 17,
                             color: Colors.green,

@@ -122,8 +122,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
         pincode.text.isEmpty ||
         city.text.isEmpty ||
         state.text.isEmpty) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Fields cannot be empty!!")));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Center(child: Text("Fields cannot be empty!!"))));
     } else {
       try {
         await FirebaseFirestore.instance
@@ -142,8 +142,13 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
         print(error);
       }
 
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("New address added!!!")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Color((0xFFA5CC65)),
+          content: Center(
+              child: Text(
+            "New address added!!!",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ))));
 
       Navigator.of(context).pop();
     }

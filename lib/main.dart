@@ -10,7 +10,8 @@ import 'package:organicbloom/Views/Screens/Search_screen.dart';
 import 'package:organicbloom/Views/Screens/Signup_screen.dart';
 import 'package:organicbloom/Views/Screens/mainnavigation.dart';
 import 'package:organicbloom/firebase_options.dart';
-
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
 import 'package:organicbloom/helpers/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -31,12 +32,12 @@ class OrganicBloom extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // ChangeNotifierProvider(
-        //   create: (context) => FavoritesProvider(),
-        // ),
-        // ChangeNotifierProvider(
-        //   create: (context) => CartProvider(),
-        // ),
+        ChangeNotifierProvider(
+          create: (context) => FavouriteProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProvider(),
+        ),
         ChangeNotifierProvider(
           create: (context) => UserProvider(),
         ),

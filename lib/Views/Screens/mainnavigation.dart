@@ -63,7 +63,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             elevation: 10,
             items: [
               _navBarItem(Icons.home, "Home", 0),
-              _navBarItem(Icons.favorite, "Favorites", 1),
+              _navBarItem(Icons.favorite, "Favourites", 1),
               _navBarItem(Icons.search, "Search", 2),
               _navBarItem(Icons.person, "Profile", 3),
             ],

@@ -2,6 +2,10 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
+
+import '../../../model/cart_model.dart';
 
 class DetailScreen extends StatefulWidget {
   final String categoryId;
@@ -36,13 +40,15 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context);
+
     return Scaffold(
       appBar:
           AppBar(title: Text(itemDetails?.data()?["name"] ?? "Item Detail")),
       body: itemDetails == null
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -53,48 +59,46 @@ class _DetailScreenState extends State<DetailScreen> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         itemDetails?.data()?["name"] ?? "",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.green),
                       ),
                       Text(
                         "⭐${itemDetails?.data()?["rating"] ?? "0"}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.green),
                       )
                     ],
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Price: ₹${itemDetails?.data()?["price"] ?? "0"}",
-                        style: TextStyle(
+                        "Price: Rs ${itemDetails?.data()?["price"] ?? "0"}",
+                        style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.green,
                         ),
                       ),
                       IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.favorite_border,
-                            size: 35,
-                          ))
+                        onPressed: () {},
+                        icon: const Icon(Icons.favorite_border, size: 35),
+                      ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     "Description",
                     style: TextStyle(
                       fontSize: 24,
@@ -102,73 +106,54 @@ class _DetailScreenState extends State<DetailScreen> {
                       color: Colors.green,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     itemDetails?.data()?["description"] ??
                         "No description available",
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
-                  SizedBox(height: 20),
-                  (itemDetails?.data()?["benefits"] == null)
+                  const SizedBox(height: 20),
+
+                  // Nutritional Information or Benefits
+                  itemDetails?.data()?["benefits"] == null
                       ? Column(
-                          spacing: 10,
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  "Calories",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green,
-                                  ),
-                                ),
-                                Text(
-                                  "Carbs",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green,
-                                  ),
-                                ),
-                                Text(
-                                  "Protein",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green,
-                                  ),
-                                ),
-                                Text(
-                                  "Fat",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green,
-                                  ),
-                                ),
+                              children: const [
+                                Text("Calories",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green)),
+                                Text("Carbs",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green)),
+                                Text("Protein",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green)),
+                                Text("Fat",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green)),
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text(
-                                  itemDetails?.data()?["calories"] ?? "",
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  itemDetails?.data()?["carbs"] ?? "",
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  itemDetails?.data()?["protein"] ?? "",
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                                Text(
-                                  itemDetails?.data()?["fat"] ?? "",
-                                  style: TextStyle(fontSize: 16),
-                                ),
+                                Text(itemDetails?.data()?["calories"] ?? "",
+                                    style: const TextStyle(fontSize: 16)),
+                                Text(itemDetails?.data()?["carbs"] ?? "",
+                                    style: const TextStyle(fontSize: 16)),
+                                Text(itemDetails?.data()?["protein"] ?? "",
+                                    style: const TextStyle(fontSize: 16)),
+                                Text(itemDetails?.data()?["fat"] ?? "",
+                                    style: const TextStyle(fontSize: 16)),
                               ],
                             ),
                           ],
@@ -176,57 +161,152 @@ class _DetailScreenState extends State<DetailScreen> {
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 10),
-                            Text(
+                            const SizedBox(height: 10),
+                            const Text(
                               "Benefits",
                               style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green,
-                              ),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.green),
                             ),
-                            Text(
-                              itemDetails?.data()?["benefits"] ?? "",
-                              style: TextStyle(fontSize: 16),
-                            ),
+                            Text(itemDetails?.data()?["benefits"] ?? "",
+                                style: const TextStyle(fontSize: 16)),
                           ],
                         ),
+
                   SizedBox(height: 20),
-                  Text(
-                    "Qauntity",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
+
+                  // Quantity Selector
+                  Row(
+                    children: [
+                      const Text(
+                        "Quantity",
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green),
+                      ),
+                      SizedBox(width: 100),
+                      IconButton(
+                        onPressed: () {
+                          var existingItem = cartProvider.items.firstWhere(
+                            (item) => item.id == widget.itemId,
+                            orElse: () => CartItem(
+                              id: widget.itemId,
+                              categoryId: widget.categoryId,
+                              itemData: itemDetails!.data()!,
+                              qty: 0,
+                            ),
+                          );
+
+                          if (existingItem.qty > 1) {
+                            cartProvider.removeFromCart(context, existingItem);
+                          } else if (existingItem.qty == 1) {
+                            cartProvider.removeFromCart(context, existingItem);
+                          }
+                        },
+                        icon: Icon(Icons.remove, size: 40, color: Colors.green),
+                      ),
+                      SizedBox(width: 20),
+                      Consumer<CartProvider>(
+                        builder: (context, cart, child) {
+                          var existingItem = cart.items.firstWhere(
+                            (item) => item.id == widget.itemId,
+                            orElse: () => CartItem(
+                                id: widget.itemId,
+                                categoryId: widget.categoryId,
+                                itemData: itemDetails!.data()!,
+                                qty: 0),
+                          );
+
+                          return Text("${existingItem.qty}",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ));
+                        },
+                      ),
+                      SizedBox(width: 20),
+                      IconButton(
+                        onPressed: () {
+                          var existingItem = cartProvider.items.firstWhere(
+                            (item) => item.id == widget.itemId,
+                            orElse: () => CartItem(
+                              id: widget.itemId,
+                              categoryId: widget.categoryId,
+                              itemData: itemDetails!.data()!,
+                              qty: 0,
+                            ),
+                          );
+
+                          cartProvider.addToCart(
+                            context,
+                            CartItem(
+                              id: widget.itemId,
+                              categoryId: widget.categoryId,
+                              itemData: itemDetails!.data()!,
+                              qty: existingItem.qty + 1,
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.add,
+                            size: 35, color: Colors.green),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 25),
+
+                  const SizedBox(height: 25),
+
+                  // Add to Cart Button
                   SizedBox(
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.shopping_cart,
+                      onPressed: () {
+                        var existingItem = cartProvider.items.firstWhere(
+                          (item) => item.id == widget.itemId,
+                          orElse: () => CartItem(
+                            id: widget.itemId,
+                            categoryId: widget.categoryId,
+                            itemData: itemDetails!.data()!,
+                            qty: 0,
+                          ),
+                        );
+
+                        if (existingItem.qty == 0) {
+                          cartProvider.addToCart(
+                            context,
+                            CartItem(
+                              id: widget.itemId,
+                              categoryId: widget.categoryId,
+                              itemData: itemDetails!.data()!,
+                              qty: 1,
+                            ),
+                          );
+                        }
+
+                        Navigator.pushNamed(context, 'cart');
+                      },
+                      icon: const Icon(Icons.shopping_cart,
                           color: Colors.white, size: 22),
-                      label: Text(
+                      label: const Text(
                         "Add to Cart",
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color((0xFFA5CC65)),
+                        backgroundColor: const Color(0xFFA5CC65),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                         elevation: 6,
                         shadowColor: Colors.black.withOpacity(0.3),
-                        padding: EdgeInsets.symmetric(vertical: 12),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

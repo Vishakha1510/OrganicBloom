@@ -2,6 +2,10 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Views/Screens/Detail_screens/Detail_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:organicbloom/model/cart_model.dart';
+import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -12,10 +16,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
-
   bool isLoading = true;
-  final String docId = "7zbZ5GSG9wZfbwsXnpPq";
-
   List _allresults = [];
   List _resultList = [];
 
@@ -26,13 +27,12 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   onSearchChanged() {
-    // print(searchController.text);
     searchResultList();
   }
 
   searchResultList() {
     var showResults = [];
-    if (searchController.text != "") {
+    if (searchController.text.isNotEmpty) {
       for (var clientSnapShot in _allresults) {
         var name = clientSnapShot['name'].toString().toLowerCase();
         if (name.contains(searchController.text.toLowerCase())) {
@@ -49,14 +49,23 @@ class _SearchScreenState extends State<SearchScreen> {
 
   getClientStream() async {
     try {
-      var data = await FirebaseFirestore.instance
-          .collection("categories")
-          .doc(docId)
-          .collection("Items")
-          .orderBy("name")
-          .get();
+      var categoriesSnapshot =
+          await FirebaseFirestore.instance.collection("categories").get();
+      List allItems = [];
+
+      for (var categoryDoc in categoriesSnapshot.docs) {
+        var itemsSnapshot =
+            await categoryDoc.reference.collection("Items").get();
+        for (var item in itemsSnapshot.docs) {
+          var itemData = item.data();
+          itemData['categoryId'] = categoryDoc.id;
+          itemData['itemId'] = item.id;
+          allItems.add(itemData);
+        }
+      }
+
       setState(() {
-        _allresults = data.docs;
+        _allresults = allItems;
         isLoading = false;
       });
       searchResultList();
@@ -80,6 +89,8 @@ class _SearchScreenState extends State<SearchScreen> {
     getClientStream();
     super.didChangeDependencies();
   }
+
+  CartProvider? cartProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -107,8 +118,9 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildbody() {
+    cartProvider = Provider.of<CartProvider>(context, listen: false);
+
     return Column(
-      spacing: 10,
       children: [
         SizedBox(height: 5),
         Padding(
@@ -123,7 +135,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     searchController.clear();
                   },
                   icon: Icon(Icons.clear)),
-              labelText: "Search Fruits",
+              labelText: "Search Items",
               labelStyle: TextStyle(color: Color(0xFFA5CC65)),
             ),
           ),
@@ -142,8 +154,14 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     itemCount: _resultList.length,
                     itemBuilder: (context, i) {
+                      var item = _resultList[i];
                       return GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => DetailScreen(
+                                  categoryId: item['categoryId'],
+                                  itemId: item['itemId'])));
+                        },
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -152,13 +170,12 @@ class _SearchScreenState extends State<SearchScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              //  Image
                               ClipRRect(
                                 borderRadius: BorderRadius.vertical(
                                   top: Radius.circular(10),
                                 ),
                                 child: Image.network(
-                                  _resultList[i]['image'],
+                                  item['image'],
                                   height: 120,
                                   width: 200,
                                   fit: BoxFit.cover,
@@ -169,14 +186,13 @@ class _SearchScreenState extends State<SearchScreen> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    //  Name
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            _resultList[i]['name'],
+                                            item['name'],
                                             style: TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold,
@@ -187,24 +203,35 @@ class _SearchScreenState extends State<SearchScreen> {
                                           ),
                                         ),
                                         IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            String itemId = item['itemId'];
+                                            String categoryId =
+                                                item['categoryId'];
+
+                                            CartItem cartItem = CartItem(
+                                              id: itemId,
+                                              categoryId: categoryId,
+                                              itemData: item,
+                                            );
+
+                                            cartProvider?.addToCart(
+                                                context, cartItem);
+                                          },
                                           icon: Icon(Icons.add, size: 30),
                                         ),
                                       ],
                                     ),
                                     SizedBox(height: 5),
-                                    // Rating
                                     Text(
-                                      "⭐ ${_resultList[i]['rating']}",
+                                      "⭐ ${item['rating']}",
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black54,
                                       ),
                                     ),
                                     SizedBox(height: 5),
-                                    // Price
                                     Text(
-                                      "Price: ${_resultList[i]['price']} Rs",
+                                      "Price: Rs ${item['price']}",
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,

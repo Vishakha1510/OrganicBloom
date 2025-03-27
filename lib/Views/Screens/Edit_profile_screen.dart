@@ -124,14 +124,20 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         passwordController!.text.isEmpty ||
         confirmpasswordController!.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please fill all fields")),
+        SnackBar(content: Center(child: Text("Please fill all fields"))),
       );
       return;
     }
 
     if (passwordController!.text != confirmpasswordController!.text) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Passwords do not match")),
+        SnackBar(
+            backgroundColor: Colors.red,
+            content: Center(
+                child: Text(
+              "Passwords do not match",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ))),
       );
       return;
     }
@@ -140,7 +146,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       FirebaseFirestore.instance.collection('users').doc(userid).update({
         'email': emailController?.text,
         'password': passwordController?.text,
-        'confirmpassword': confirmpasswordController?.text
       });
       try {
         await FirebaseFirestore.instance
@@ -149,23 +154,35 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             .update({
           'email': emailController!.text,
           'password': passwordController!.text,
-          'confirmpassword': confirmpasswordController!.text
         });
         await userProvider!.updateUser(userid, {
           'email': emailController!.text,
           'password': passwordController!.text,
-          'confirmpassword': confirmpasswordController!.text,
         });
 
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Profile updated successfully")),
+          SnackBar(
+              backgroundColor: Color((0xFFA5CC65)),
+              content: Center(
+                child: Text(
+                  "Profile updated successfully",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              )),
         );
 
         Navigator.of(context).pop();
       } catch (e) {
         print("Error updating profile: $e");
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Failed to update profile")),
+          SnackBar(
+              backgroundColor: Colors.red,
+              content: Center(
+                child: Text(
+                  "Failed to update profile",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              )),
         );
       }
     }

@@ -1,16 +1,15 @@
 // ignore_for_file: file_names, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:organicbloom/Views/Screens/Chat_withus_screen.dart';
 import 'package:organicbloom/Views/Screens/Edit_profile_screen.dart';
 import 'package:organicbloom/Views/Screens/Intro_screen.dart';
-import 'package:organicbloom/Views/Screens/Mail_to_us_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Address_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Orders_screen.dart';
 import 'package:organicbloom/Views/Screens/My_Wishlist_screen.dart';
-import 'package:organicbloom/Views/Screens/Talk_to_our_support_screen.dart';
+import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:organicbloom/helpers/providers/user_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Profile_screen extends StatefulWidget {
   const Profile_screen({super.key});
@@ -95,23 +94,17 @@ class _Profile_screenState extends State<Profile_screen> {
                   Icons.bolt_outlined,
                   color: Colors.black,
                 ),
-                title: Text("My Wishlist")),
+                title: Text("My Favourites")),
             Divider(),
             ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ChatWithusScreen()));
-                },
-                leading: Icon(
-                  Icons.messenger_outline,
-                  color: Color(0xFFA5CC65),
-                ),
-                title: Text("Chat with us")),
-            Divider(),
-            ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => TalkToOurSupportScreen()));
+                onTap: () async {
+                  final Uri phoneUri = Uri(scheme: "tel", path: "7778963970");
+
+                  if (await canLaunchUrl(phoneUri)) {
+                    await launchUrl(phoneUri);
+                  } else {
+                    debugPrint("Could not launch phone call");
+                  }
                 },
                 leading: Icon(
                   Icons.call_outlined,
@@ -120,9 +113,15 @@ class _Profile_screenState extends State<Profile_screen> {
                 title: Text("Talk to our Support")),
             Divider(),
             ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => MailToUsScreen()));
+                onTap: () async {
+                  Uri emailUri =
+                      Uri(scheme: "mailto", path: "vkpatel1503@gmail.com");
+
+                  if (await canLaunchUrl(emailUri)) {
+                    await launchUrl(emailUri);
+                  } else {
+                    debugPrint("Could not launch email");
+                  }
                 },
                 leading: Icon(
                   Icons.mail_outline,
@@ -132,6 +131,10 @@ class _Profile_screenState extends State<Profile_screen> {
             Divider(),
             ListTile(
                 onTap: () {
+                  CartProvider cartProvider =
+                      Provider.of<CartProvider>(context, listen: false);
+
+                  cartProvider.clearItems();
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => Intro_screen()));
                 },
