@@ -40,60 +40,77 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             );
           }
 
-          return ListView.builder(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-            itemCount: favProvider.favouriteItems.length,
-            itemBuilder: (context, index) {
-              final item = favProvider.favouriteItems[index];
+          return Column(
+            children: [
+              Expanded(
+                flex: 10,
+                child: ListView.builder(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  itemCount: favProvider.favouriteItems.length,
+                  itemBuilder: (context, index) {
+                    final item = favProvider.favouriteItems[index];
 
-              return AnimatedContainer(
-                duration: Duration(milliseconds: 300),
-                margin: EdgeInsets.only(bottom: 12),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      blurRadius: 5,
-                      spreadRadius: 2,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
+                    return AnimatedContainer(
+                      duration: Duration(milliseconds: 300),
+                      margin: EdgeInsets.only(bottom: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            blurRadius: 5,
+                            spreadRadius: 2,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: ListTile(
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            item.itemData["image"],
+                            height: 60,
+                            width: 60,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        title: Text(
+                          item.itemData["name"],
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          "₹${item.getPrice()}",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.green,
+                          ),
+                        ),
+                        trailing: IconButton(
+                          icon: Icon(Icons.favorite, color: Colors.red),
+                          onPressed: () {
+                            favProvider.removeFromFavorites(context, item);
+                          },
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                child: ListTile(
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      item.itemData["image"],
-                      height: 60,
-                      width: 60,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  title: Text(
-                    item.itemData["name"],
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "₹${item.getPrice()}",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.green,
-                    ),
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.favorite, color: Colors.red),
+              ),
+              Expanded(
+                  flex: 0,
+                  child: OutlinedButton.icon(
                     onPressed: () {
-                      favProvider.removeFromFavorites(context, item);
+                      favProvider.clearFavorites(context);
                     },
-                  ),
-                ),
-              );
-            },
+                    label: Text("Remove All"),
+                    icon: Icon(Icons.delete),
+                  ))
+            ],
           );
         },
       ),

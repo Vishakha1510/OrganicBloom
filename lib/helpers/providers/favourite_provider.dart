@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 class FavouriteProvider extends ChangeNotifier {
   List<CartItem> favouriteItems = [];
 
-  //  Add to Favorites
   Future<void> addToFavorites(BuildContext context, CartItem item) async {
     UserProvider userProvider =
         Provider.of<UserProvider>(context, listen: false);
@@ -32,7 +31,6 @@ class FavouriteProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //  Remove from Favorites
   Future<void> removeFromFavorites(BuildContext context, CartItem item) async {
     UserProvider userProvider =
         Provider.of<UserProvider>(context, listen: false);
@@ -52,7 +50,6 @@ class FavouriteProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //  Load Favorites from Firestore
   Future<void> fetchFavorites(BuildContext context) async {
     UserProvider userProvider =
         Provider.of<UserProvider>(context, listen: false);
@@ -73,12 +70,10 @@ class FavouriteProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //  Check if an item is in favorites
   bool isFavorite(String itemId) {
     return favouriteItems.any((favItem) => favItem.id == itemId);
   }
 
-  //  Clear All Favorites
   Future<void> clearFavorites(BuildContext context) async {
     UserProvider userProvider =
         Provider.of<UserProvider>(context, listen: false);

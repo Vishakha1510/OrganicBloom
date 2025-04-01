@@ -47,9 +47,9 @@ class _DetailScreenState extends State<DetailScreen> {
       appBar:
           AppBar(title: Text(itemDetails?.data()?["name"] ?? "Item Detail")),
       body: itemDetails == null
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -60,33 +60,33 @@ class _DetailScreenState extends State<DetailScreen> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         itemDetails?.data()?["name"] ?? "",
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.green),
                       ),
                       Text(
                         "⭐${itemDetails?.data()?["rating"] ?? "0"}",
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.green),
                       )
                     ],
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Price: ₹${itemDetails?.data()?["price"] ?? "0"}",
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.green,
@@ -126,8 +126,8 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
+                  SizedBox(height: 10),
+                  Text(
                     "Description",
                     style: TextStyle(
                       fontSize: 24,
@@ -135,13 +135,13 @@ class _DetailScreenState extends State<DetailScreen> {
                       color: Colors.green,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Text(
                     itemDetails?.data()?["description"] ??
                         "No description available",
-                    style: const TextStyle(fontSize: 16),
+                    style: TextStyle(fontSize: 16),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
 
                   // Nutritional Information or Benefits
                   itemDetails?.data()?["benefits"] == null
@@ -149,7 +149,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const [
+                              children: [
                                 Text("Calories",
                                     style: TextStyle(
                                         fontSize: 18,
@@ -176,13 +176,13 @@ class _DetailScreenState extends State<DetailScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(itemDetails?.data()?["calories"] ?? "",
-                                    style: const TextStyle(fontSize: 16)),
+                                    style: TextStyle(fontSize: 16)),
                                 Text(itemDetails?.data()?["carbs"] ?? "",
-                                    style: const TextStyle(fontSize: 16)),
+                                    style: TextStyle(fontSize: 16)),
                                 Text(itemDetails?.data()?["protein"] ?? "",
-                                    style: const TextStyle(fontSize: 16)),
+                                    style: TextStyle(fontSize: 16)),
                                 Text(itemDetails?.data()?["fat"] ?? "",
-                                    style: const TextStyle(fontSize: 16)),
+                                    style: TextStyle(fontSize: 16)),
                               ],
                             ),
                           ],
@@ -190,8 +190,8 @@ class _DetailScreenState extends State<DetailScreen> {
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 10),
-                            const Text(
+                            SizedBox(height: 10),
+                            Text(
                               "Benefits",
                               style: TextStyle(
                                   fontSize: 18,
@@ -199,7 +199,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   color: Colors.green),
                             ),
                             Text(itemDetails?.data()?["benefits"] ?? "",
-                                style: const TextStyle(fontSize: 16)),
+                                style: TextStyle(fontSize: 16)),
                           ],
                         ),
 
@@ -208,7 +208,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   // Quantity Selector
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         "Quantity",
                         style: TextStyle(
                             fontSize: 24,
@@ -277,13 +277,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                           );
                         },
-                        icon: const Icon(Icons.add_circle,
+                        icon: Icon(Icons.add_circle,
                             size: 30, color: Colors.green),
                       ),
                     ],
                   ),
 
-                  const SizedBox(height: 25),
+                  SizedBox(height: 25),
 
                   // Add to Cart Button
                   SizedBox(
@@ -315,9 +315,9 @@ class _DetailScreenState extends State<DetailScreen> {
 
                         Navigator.pushNamed(context, 'cart');
                       },
-                      icon: const Icon(Icons.shopping_cart,
+                      icon: Icon(Icons.shopping_cart,
                           color: Colors.white, size: 22),
-                      label: const Text(
+                      label: Text(
                         "Add to Cart",
                         style: TextStyle(
                             fontSize: 16,
@@ -325,13 +325,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFA5CC65),
+                        backgroundColor: Color(0xFFA5CC65),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                         elevation: 6,
                         shadowColor: Colors.black.withOpacity(0.3),
-                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        padding: EdgeInsets.symmetric(vertical: 12),
                       ),
                     ),
                   ),
