@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organicbloom/helpers/providers/cart_provider.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../model/cart_model.dart';
@@ -84,7 +85,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Price: Rs ${itemDetails?.data()?["price"] ?? "0"}",
+                        "Price: ₹${itemDetails?.data()?["price"] ?? "0"}",
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -92,8 +93,36 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.favorite_border, size: 35),
+                        onPressed: () {
+                          FavouriteProvider favProvider =
+                              Provider.of<FavouriteProvider>(context,
+                                  listen: false);
+
+                          CartItem item = CartItem(
+                            id: widget.itemId,
+                            itemData: itemDetails!.data()!,
+                            categoryId: widget.categoryId,
+                          );
+
+                          if (favProvider.isFavorite(item.id)) {
+                            favProvider.removeFromFavorites(context, item);
+                          } else {
+                            favProvider.addToFavorites(context, item);
+                          }
+                        },
+                        icon: Consumer<FavouriteProvider>(
+                          builder: (context, favProvider, child) {
+                            return Icon(
+                              favProvider.isFavorite(widget.itemId)
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              size: 35,
+                              color: favProvider.isFavorite(widget.itemId)
+                                  ? Colors.red
+                                  : Colors.grey,
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),

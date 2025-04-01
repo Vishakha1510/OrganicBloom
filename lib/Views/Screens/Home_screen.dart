@@ -363,9 +363,9 @@ class _Home_screenState extends State<Home_screen> {
                         padding: EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 2.0),
                         child: Text(
-                          "Rs ${itemData['price']}",
+                          "₹${itemData['price']}",
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 19,
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),
@@ -483,9 +483,9 @@ class _Home_screenState extends State<Home_screen> {
                         padding: EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 2.0),
                         child: Text(
-                          "Rs ${itemData['price']}",
+                          "₹${itemData['price']}",
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 19,
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),

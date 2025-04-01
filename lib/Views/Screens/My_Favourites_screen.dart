@@ -1,6 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Views/Screens/Favourite_screen.dart';
+import 'package:organicbloom/helpers/providers/favourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class MyWishlistScreen extends StatefulWidget {
   const MyWishlistScreen({super.key});
@@ -11,17 +14,16 @@ class MyWishlistScreen extends StatefulWidget {
 
 class _MyWishlistScreenState extends State<MyWishlistScreen> {
   @override
+  void initState() {
+    super.initState();
+    Provider.of<FavouriteProvider>(context, listen: false)
+        .fetchFavorites(context);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFA5CC65),
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        title: Text(
-          "MY  FAVOURITES",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-        ),
-      ),
+      body: FavoritesScreen(),
     );
   }
 }

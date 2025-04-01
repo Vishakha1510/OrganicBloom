@@ -47,7 +47,7 @@ class _CartScreenState extends State<CartScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.all(12.0),
                       child: Row(
                         children: [
                           ClipRRect(
@@ -72,7 +72,7 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  "Rs ${getPrice(item.itemData["price"], item.qty)}",
+                                  "₹${getPrice(item.itemData["price"], item.qty)}",
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600,

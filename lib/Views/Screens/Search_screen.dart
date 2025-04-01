@@ -231,7 +231,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                     ),
                                     SizedBox(height: 5),
                                     Text(
-                                      "Price: Rs ${item['price']}",
+                                      "Price: ₹${item['price']}",
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,

@@ -145,7 +145,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                           SizedBox(height: 5),
                           // Price
                           Text(
-                            "Price: Rs ${fruit?['price'] ?? "0"}",
+                            "Price: ₹${fruit?['price'] ?? "0"}",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

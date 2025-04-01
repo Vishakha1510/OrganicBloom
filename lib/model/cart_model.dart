@@ -20,17 +20,20 @@ class CartItem {
     Map<String, dynamic> data = {
       "id": id,
       "itemData": itemData,
-      "qty": qty,
+      //"qty": qty,
       "categoryId": categoryId
     };
+    data["qty"] = qty;
     return data;
   }
 
   factory CartItem.fromMap(Map<String, dynamic> data) {
     return CartItem(
-        id: data["id"],
-        itemData: data["itemData"],
-        categoryId: data["categoryId"],
-        qty: data["qty"]);
+      id: data["id"],
+      itemData: data["itemData"],
+      categoryId: data["categoryId"],
+      // qty: data["qty"]
+      qty: data.containsKey("qty") ? data["qty"] : null,
+    );
   }
 }
