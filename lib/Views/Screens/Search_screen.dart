@@ -99,6 +99,8 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   AppBar _appBar() {
+    final cartProvider = Provider.of<CartProvider>(context);
+
     return AppBar(
       foregroundColor: Colors.white,
       backgroundColor: const Color(0xFFA5CC65),
@@ -124,7 +126,7 @@ class _SearchScreenState extends State<SearchScreen> {
               backgroundColor: Colors.red,
               child: Center(
                   child: Text(
-                cartProvider!.items.length.toString(),
+                cartProvider.items.length.toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 10,
