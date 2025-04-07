@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:organicbloom/Views/Screens/Cart_screen.dart';
 import 'package:organicbloom/Views/Screens/Detail_screens/Detail_screen.dart';
 import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:organicbloom/model/cart_model.dart';
@@ -107,11 +108,30 @@ class _SearchScreenState extends State<SearchScreen> {
         style: TextStyle(fontSize: 25),
       ),
       actions: [
-        IconButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed('cart');
-          },
-          icon: Icon(Icons.shopping_bag_rounded),
+        Stack(
+          alignment: Alignment.topCenter,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => CartScreen()),
+                );
+              },
+              icon: Icon(Icons.shopping_cart_rounded),
+            ),
+            CircleAvatar(
+              radius: 7.5,
+              backgroundColor: Colors.red,
+              child: Center(
+                  child: Text(
+                cartProvider!.items.length.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold),
+              )),
+            ),
+          ],
         )
       ],
     );

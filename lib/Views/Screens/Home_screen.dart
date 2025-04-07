@@ -74,15 +74,31 @@ class _Home_screenState extends State<Home_screen> {
         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
       ),
       actions: [
-        IconButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CartScreen(),
-              ));
-            },
-            icon: Icon(
-              Icons.shopping_bag_rounded,
-            ))
+        Stack(
+          alignment: Alignment.topCenter,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => CartScreen()),
+                );
+              },
+              icon: Icon(Icons.shopping_cart_rounded),
+            ),
+            CircleAvatar(
+              radius: 7.5,
+              backgroundColor: Colors.red,
+              child: Center(
+                  child: Text(
+                cartProvider!.items.length.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold),
+              )),
+            ),
+          ],
+        )
       ],
     );
   }
@@ -355,7 +371,7 @@ class _Home_screenState extends State<Home_screen> {
                                       children:
                                           cartProvider!.items.map((cartItem) {
                                         return Padding(
-                                          padding: const EdgeInsets.symmetric(
+                                          padding: EdgeInsets.symmetric(
                                               horizontal: 4.0),
                                           child: Stack(
                                             alignment: Alignment.topRight,
@@ -525,7 +541,7 @@ class _Home_screenState extends State<Home_screen> {
                                       children:
                                           cartProvider!.items.map((cartItem) {
                                         return Padding(
-                                          padding: const EdgeInsets.symmetric(
+                                          padding: EdgeInsets.symmetric(
                                               horizontal: 4.0),
                                           child: Stack(
                                             alignment: Alignment.topRight,
