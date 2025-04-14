@@ -136,6 +136,54 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                                     categoryId: widget.id!,
                                   );
                                   cartProvider?.addToCart(context, cartItem);
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      backgroundColor: Color(0xFFA5CC65),
+                                      duration: Duration(seconds: 2),
+                                      behavior: SnackBarBehavior.floating,
+                                      content: Row(
+                                        children:
+                                            cartProvider!.items.map((cartItem) {
+                                          return Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 4.0),
+                                            child: Stack(
+                                              alignment: Alignment.topRight,
+                                              children: [
+                                                CircleAvatar(
+                                                  radius: 20,
+                                                  backgroundImage: NetworkImage(
+                                                      cartItem
+                                                          .itemData['image']),
+                                                ),
+                                                Positioned(
+                                                  top: -5,
+                                                  right: 0,
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(4),
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.red,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Text(
+                                                      cartItem.qty.toString(),
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  );
                                 }
                               },
                               icon: Icon(Icons.add, size: 30),
