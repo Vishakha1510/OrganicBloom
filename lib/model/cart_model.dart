@@ -20,10 +20,9 @@ class CartItem {
     Map<String, dynamic> data = {
       "id": id,
       "itemData": itemData,
-      //"qty": qty,
+      "qty": qty,
       "categoryId": categoryId
     };
-    data["qty"] = qty;
     return data;
   }
 

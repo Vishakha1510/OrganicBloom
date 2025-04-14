@@ -72,9 +72,11 @@ class _SearchScreenState extends State<SearchScreen> {
       searchResultList();
     } catch (e) {
       print("Error fetching data: $e");
-      setState(() {
-        isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
     }
   }
 

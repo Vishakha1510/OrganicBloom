@@ -135,7 +135,20 @@ class _CartScreenState extends State<CartScreen> {
                         color: Colors.green),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await cartProvider.placeOrder(context);
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Order Place Successfully !!",
+                          ),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+
+                      Navigator.of(context).pop();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFFA5CC65),
                       padding:

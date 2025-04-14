@@ -21,7 +21,6 @@ class CartProvider extends ChangeNotifier {
         i.qty += 1;
         isExistingItem = true;
 
-        // Update Firestore quantity instead of adding duplicate entry
         QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
             .instance
             .collection('users')
@@ -122,5 +121,79 @@ class CartProvider extends ChangeNotifier {
   void clearItems() {
     items.clear();
     notifyListeners();
+  }
+
+  Future<void> placeOrder(BuildContext context) async {
+    // order add
+    await addOrder(context);
+
+    clearItems();
+
+    await deleteAllCartItems(context);
+  }
+
+  Future<void> addOrder(BuildContext context) async {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: false);
+    String userId = userProvider.user?.id ?? '';
+
+    if (userId.isEmpty) return;
+
+    if (items.isEmpty) return;
+
+    Map<String, dynamic> orderData = {
+      "items": items.map((item) => item.toMap()).toList(),
+      "total": getTotalPrice(),
+      "created_at": DateTime.now().toString(),
+      "order_id": DateTime.now().microsecondsSinceEpoch
+    };
+
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(userId)
+        .collection("order")
+        .add(orderData);
+
+    notifyListeners();
+  }
+
+  Future<void> deleteAllCartItems(BuildContext context) async {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: false);
+    String userId = userProvider.user?.id ?? '';
+
+    if (userId.isEmpty) return;
+
+    QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
+        .instance
+        .collection('users')
+        .doc(userId)
+        .collection("cart")
+        .get();
+
+    if (snapshot.docs.isNotEmpty) {
+      for (var cartItems in snapshot.docs) {
+        await cartItems.reference.delete();
+      }
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> getOrderList(BuildContext context) async {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: false);
+    String userId = userProvider.user?.id ?? '';
+
+    if (userId.isEmpty) return [];
+
+    QuerySnapshot<Map<String, dynamic>> orderList = await FirebaseFirestore
+        .instance
+        .collection('users')
+        .doc(userId)
+        .collection("order")
+        .get();
+
+    List<Map<String, dynamic>> data =
+        orderList.docs.map((element) => element.data()).toList();
+    return data;
   }
 }
