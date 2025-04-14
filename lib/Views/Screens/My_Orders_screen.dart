@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:organicbloom/Views/Screens/orders_detail_screen.dart';
 import 'package:organicbloom/helpers/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +41,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
         foregroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "MY  ORDERS",
+          "MY ORDERS",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
       ),
@@ -57,45 +58,56 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
     DateTime dateTime = DateTime.parse(order["created_at"]);
     DateFormat dateFormat = DateFormat("dd/MM/yyyy hh:mm a");
 
-    return Card(
-      color: Colors.white,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Order id: #${order["order_id"].toString()}"),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text("Placed at: ${dateFormat.format(dateTime)}"),
-                    ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => OrdersDetailScreen(
+                  orderData: order,
+                )));
+      },
+      child: Card(
+        margin: EdgeInsets.all(10),
+        color: Colors.white,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Order id: #${order["order_id"].toString()}"),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text("Placed at: ${dateFormat.format(dateTime)}"),
+                      ],
+                    ),
                   ),
-                ),
-                Text("Total ${order["total"].toString()}"),
-              ],
-            ),
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.network(
-                    (order["items"] as List)[index]["itemData"]["image"],
-                    height: 50,
-                    width: 50,
-                  ),
-                ),
-                itemCount: (order["items"] as List).length,
+                  Text("Total ${order["total"].toString()}"),
+                ],
               ),
-            )
-          ],
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 10.0),
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundImage: NetworkImage(
+                        (order["items"] as List)[index]["itemData"]["image"],
+                      ),
+                    ),
+                  ),
+                  itemCount: (order["items"] as List).length,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
